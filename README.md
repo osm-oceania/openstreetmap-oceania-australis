@@ -5,7 +5,7 @@
 The purpose of the Australis style is to:
 
 * Promote collaboration and common purpose in OpenStreetMap’s Oceania mapping community
-* Express the cultures of Oceania through cartograpy
+* Express the cultures of Oceania through cartography
 * Showcase the richness of OpenStreetMap data
 * Provide a more useful map for an Australian audience
 
