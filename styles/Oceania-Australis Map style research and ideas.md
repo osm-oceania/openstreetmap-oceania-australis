@@ -1,4 +1,4 @@
-# Oceania Map Style
+# Oceania-Australis Map Style
 
 ## Proposed Styles
 
