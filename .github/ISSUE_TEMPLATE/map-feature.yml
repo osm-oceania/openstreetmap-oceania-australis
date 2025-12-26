@@ -1,0 +1,139 @@
+name: "Map Feature Proposal"
+description: "Propose a new map feature (layer, labels, symbology, colours, icons, zoom behaviour) for Australis/Oceania styles."
+title: "[Feature]: "
+labels: ["feature", "map-style"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to propose a new map feature (POIs, layers, labels, colour system, icons, zoom behaviour, etc.).
+        Please fill in as much as you can — it helps keep design and implementation aligned with our principles.
+
+  - type: input
+    id: feature-summary
+    attributes:
+      label: Feature summary
+      description: A short, plain-language summary of what you want to add/change.
+      placeholder: "e.g., Add intermittent water styling and de-emphasise dry lakes in Topographic mode"
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-need
+    attributes:
+      label: User need / problem statement
+      description: What user need does this solve? Who benefits and in what scenario?
+      placeholder: |
+        e.g., Hikers need clearer differentiation between permanent and intermittent water to plan safe routes.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: mode-bucket
+    attributes:
+      label: Mode / bucket
+      description: Which feature bucket does this belong to?
+      options:
+        - "A) Standard (baseline)"
+        - "B) Topographic"
+        - "C) Roads"
+        - "D) Public transport"
+        - "E) Emergency"
+        - "F) Infrastructure"
+        - "G) Common POIs + local iconography"
+        - "H) Accessibility overlay"
+        - "Other / cross-cutting (explain below)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: data-tagging
+    attributes:
+      label: Data + tagging requirements
+      description: What OSM tags/data sources are required? Are they reliable in AU/NZ/Oceania?
+      placeholder: |
+        - Primary tags:
+        - Secondary/conditional tags:
+        - Data quality notes / gaps:
+        - Example OSM links (if available):
+    validations:
+      required: true
+
+  - type: textarea
+    id: rendering-rules
+    attributes:
+      label: Rendering rules
+      description: How should this render? Include geometry type(s), zoom thresholds, and layer interactions.
+      placeholder: |
+        - Geometry: point / line / polygon
+        - Appears at zoom:
+        - Disappears at zoom:
+        - Label behaviour (if relevant):
+        - Priority / ordering notes (e.g., above roads, below labels):
+    validations:
+      required: true
+
+  - type: textarea
+    id: visual-design
+    attributes:
+      label: Visual design notes
+      description: Colours, line widths, patterns, icons, label styling. Include any references.
+      placeholder: |
+        - Palette / contrast considerations:
+        - Colour-blind-safe approach (patterns/symbols where needed):
+        - Icons needed (SVG? new or existing?):
+        - Comparable styles / references:
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: accessibility-check
+    attributes:
+      label: Accessibility checks
+      description: Confirm you’ve considered these.
+      options:
+        - label: "Colour-blind safe differentiation (not just hue)"
+          required: false
+        - label: "Contrast/readability considered (WCAG AA baseline where applicable)"
+          required: false
+        - label: "No clutter regression at target zooms (labels/POIs remain legible)"
+          required: false
+
+  - type: textarea
+    id: cultural-local-context
+    attributes:
+      label: Cultural & local context check
+      description: Any localisation requirements (e.g., `name:aus`, Aboriginal language tags) or culturally sensitive representation concerns?
+      placeholder: |
+        - Local naming / language tags:
+        - Region-specific conventions:
+        - Cultural sensitivity notes:
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria (definition of done)
+      description: List concrete checks that confirm the feature is complete.
+      placeholder: |
+        - Renders correctly across zoom levels 0–22
+        - Tested on mobile + desktop viewports
+        - Accessibility tooling pass / manual checks completed
+        - No unintended layer-order regressions
+        - Screenshots added for key locations (metro + regional/rural)
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation-notes
+    attributes:
+      label: Implementation notes (optional)
+      description: Any repo structure considerations, files to touch, or risks/unknowns.
+      placeholder: |
+        - Likely files:
+        - New icons/fonts required:
+        - Risks / open questions:
+    validations:
+      required: false
