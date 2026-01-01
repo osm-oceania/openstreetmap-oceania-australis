@@ -6212,7 +6212,8 @@
           "network",
           "Sydney Trains",
           "NSW TrainLink",
-          "PTV - Metropolitan Trains"
+          "PTV - Metropolitan Trains",
+          "PTV - Regional Trains"
         ]
       ],
       "layout": {
@@ -6233,6 +6234,8 @@
           "nswtransport:train",
           "PTV - Metropolitan Trains",
           "ptv:train",
+          "PTV - Regional Trains",
+          "ptv:train_regional",
           ""
         ]
       },
