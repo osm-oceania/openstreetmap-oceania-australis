@@ -1,20 +1,33 @@
 {
   "version": 8,
-  "name": "OSMF-colorful",
+  "name": "osm-oceania-australis",
   "metadata": {
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
     "maputnik:renderer": "mlgljs"
   },
+  "projection": {"type": "globe"},
   "sources": {
     "OSMF": {
       "type": "vector",
       "url": "https://vector.openstreetmap.org/shortbread_v1/tilejson.json"
+    },
+    "local": {
+      "type": "vector",
+      "url": "http://localhost:8080/data/pmtiles.json"
     }
   },
   "sprite": [
     {
       "id": "basics",
       "url": "https://tiles.versatiles.org/assets/sprites/basics/sprites"
+    },
+    {
+      "id": "nswtransport",
+      "url": "http://localhost:8000/nswtransport/nswtransport"
+    },
+    {
+      "id": "ptv",
+      "url": "http://localhost:8000/ptv-metropolitan/ptv-metropolitan"
     }
   ],
   "glyphs": "https://tiles.versatiles.org/assets/glyphs/{fontstack}/{range}.pbf",
@@ -27,14 +40,14 @@
     {
       "id": "water-ocean",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "ocean",
       "paint": {"fill-color": "rgb(190,221,243)"}
     },
     {
       "id": "land-glacier",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "water_polygons",
       "filter": ["all", ["==", "kind", "glacier"]],
       "paint": {"fill-color": "rgb(255,255,255)"}
@@ -42,7 +55,7 @@
     {
       "id": "land-commercial",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "land",
       "filter": ["all", ["in", "kind", "commercial", "retail"]],
       "paint": {
@@ -53,7 +66,7 @@
     {
       "id": "land-industrial",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "land",
       "filter": ["all", ["in", "kind", "industrial", "quarry", "railway"]],
       "paint": {
@@ -64,7 +77,7 @@
     {
       "id": "land-residential",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "land",
       "filter": ["all", ["in", "kind", "garages", "residential"]],
       "paint": {
@@ -75,7 +88,7 @@
     {
       "id": "land-agriculture",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "land",
       "filter": [
         "all",
@@ -100,7 +113,7 @@
     {
       "id": "land-waste",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "land",
       "filter": ["all", ["in", "kind", "landfill"]],
       "paint": {
@@ -111,7 +124,7 @@
     {
       "id": "land-park",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "land",
       "filter": [
         "all",
@@ -125,7 +138,7 @@
     {
       "id": "land-garden",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "land",
       "filter": ["all", ["in", "kind", "allotments", "garden"]],
       "paint": {
@@ -136,7 +149,7 @@
     {
       "id": "land-burial",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "land",
       "filter": ["all", ["in", "kind", "cemetery", "grave_yard"]],
       "paint": {
@@ -147,7 +160,7 @@
     {
       "id": "land-leisure",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "land",
       "filter": [
         "all",
@@ -158,7 +171,7 @@
     {
       "id": "land-rock",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "land",
       "filter": ["all", ["in", "kind", "bare_rock", "scree", "shingle"]],
       "paint": {"fill-color": "rgb(224,228,229)"}
@@ -166,7 +179,7 @@
     {
       "id": "land-forest",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "land",
       "filter": ["all", ["in", "kind", "forest"]],
       "paint": {
@@ -177,7 +190,7 @@
     {
       "id": "land-grass",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "land",
       "filter": [
         "all",
@@ -191,7 +204,7 @@
     {
       "id": "land-vegetation",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "land",
       "filter": ["all", ["in", "kind", "heath", "scrub"]],
       "paint": {
@@ -202,7 +215,7 @@
     {
       "id": "land-sand",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "land",
       "filter": ["all", ["in", "kind", "beach", "sand"]],
       "paint": {"fill-color": "rgb(250,250,237)"}
@@ -210,7 +223,7 @@
     {
       "id": "land-wetland",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "land",
       "filter": ["all", ["in", "kind", "bog", "marsh", "string_bog", "swamp"]],
       "paint": {"fill-color": "rgb(211,230,219)"}
@@ -218,7 +231,7 @@
     {
       "id": "water-river",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "water_lines",
       "filter": [
         "all",
@@ -237,7 +250,7 @@
     {
       "id": "water-canal",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "water_lines",
       "filter": [
         "all",
@@ -256,7 +269,7 @@
     {
       "id": "water-stream",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "water_lines",
       "filter": [
         "all",
@@ -275,7 +288,7 @@
     {
       "id": "water-ditch",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "water_lines",
       "filter": [
         "all",
@@ -292,7 +305,7 @@
     {
       "id": "water-area",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "water_polygons",
       "filter": ["==", "kind", "water"],
       "paint": {
@@ -303,7 +316,7 @@
     {
       "id": "water-area-river",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "water_polygons",
       "filter": ["==", "kind", "river"],
       "paint": {
@@ -314,7 +327,7 @@
     {
       "id": "water-area-small",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "water_polygons",
       "filter": ["in", "kind", "reservoir", "basin", "dock"],
       "paint": {
@@ -325,7 +338,7 @@
     {
       "id": "water-dam-area",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "dam_polygons",
       "filter": ["==", "kind", "dam"],
       "paint": {
@@ -337,7 +350,7 @@
     {
       "id": "water-dam",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "dam_lines",
       "filter": ["==", "kind", "dam"],
       "layout": {"line-cap": "round", "line-join": "round"},
@@ -346,7 +359,7 @@
     {
       "id": "water-pier-area",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "pier_polygons",
       "filter": ["in", "kind", "pier", "breakwater", "groyne"],
       "paint": {
@@ -357,7 +370,7 @@
     {
       "id": "water-pier",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "pier_lines",
       "filter": ["in", "kind", "pier", "breakwater", "groyne"],
       "layout": {"line-cap": "round", "line-join": "round"},
@@ -366,7 +379,7 @@
     {
       "id": "site-dangerarea",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "sites",
       "filter": ["in", "kind", "danger_area"],
       "paint": {
@@ -379,7 +392,7 @@
     {
       "id": "site-university",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "sites",
       "filter": ["in", "kind", "university"],
       "paint": {"fill-color": "rgb(255,255,128)", "fill-opacity": 0.1}
@@ -387,7 +400,7 @@
     {
       "id": "site-college",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "sites",
       "filter": ["in", "kind", "college"],
       "paint": {"fill-color": "rgb(255,255,128)", "fill-opacity": 0.1}
@@ -395,7 +408,7 @@
     {
       "id": "site-school",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "sites",
       "filter": ["in", "kind", "school"],
       "paint": {"fill-color": "rgb(255,255,128)", "fill-opacity": 0.1}
@@ -403,7 +416,7 @@
     {
       "id": "site-hospital",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "sites",
       "filter": ["in", "kind", "hospital"],
       "paint": {"fill-color": "rgb(255,102,102)", "fill-opacity": 0.1}
@@ -411,7 +424,7 @@
     {
       "id": "site-prison",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "sites",
       "filter": ["in", "kind", "prison"],
       "paint": {
@@ -423,7 +436,7 @@
     {
       "id": "site-parking",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "sites",
       "filter": ["in", "kind", "parking"],
       "paint": {"fill-color": "rgb(235,232,230)"}
@@ -431,7 +444,7 @@
     {
       "id": "site-bicycleparking",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "sites",
       "filter": ["in", "kind", "bicycle_parking"],
       "paint": {"fill-color": "rgb(235,232,230)"}
@@ -439,7 +452,7 @@
     {
       "id": "site-construction",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "sites",
       "filter": ["in", "kind", "construction"],
       "layout": {"visibility": "none"},
@@ -452,7 +465,7 @@
     {
       "id": "airport-area",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "street_polygons",
       "filter": ["in", "kind", "runway", "taxiway"],
       "paint": {"fill-color": "rgb(255,255,255)", "fill-opacity": 0.5}
@@ -460,7 +473,7 @@
     {
       "id": "building:outline",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "buildings",
       "paint": {
         "fill-color": "rgb(223,219,215)",
@@ -470,7 +483,7 @@
     {
       "id": "building",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "buildings",
       "paint": {
         "fill-color": "rgb(242,234,226)",
@@ -481,7 +494,7 @@
     {
       "id": "tunnel-street-pedestrian-zone",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "street_polygons",
       "filter": ["all", ["==", "tunnel", true], ["==", "kind", "pedestrian"]],
       "paint": {
@@ -492,7 +505,7 @@
     {
       "id": "tunnel-way-footway:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "tunnel", true], ["in", "kind", "footway"]],
@@ -507,7 +520,7 @@
     {
       "id": "tunnel-way-steps:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "tunnel", true], ["in", "kind", "steps"]],
@@ -522,7 +535,7 @@
     {
       "id": "tunnel-way-path:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "tunnel", true], ["in", "kind", "path"]],
@@ -537,7 +550,7 @@
     {
       "id": "tunnel-way-cycleway:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "tunnel", true], ["in", "kind", "cycleway"]],
@@ -552,7 +565,7 @@
     {
       "id": "tunnel-street-track:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "track"], ["==", "tunnel", true]],
       "layout": {"line-join": "round", "line-cap": "round"},
@@ -567,7 +580,7 @@
     {
       "id": "tunnel-street-pedestrian:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "pedestrian"], ["==", "tunnel", true]],
       "layout": {"line-join": "round", "line-cap": "round"},
@@ -582,7 +595,7 @@
     {
       "id": "tunnel-street-service:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "service"], ["==", "tunnel", true]],
       "layout": {"line-join": "round", "line-cap": "round"},
@@ -597,7 +610,7 @@
     {
       "id": "tunnel-street-livingstreet:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -616,7 +629,7 @@
     {
       "id": "tunnel-street-residential:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "residential"], ["==", "tunnel", true]],
       "layout": {"line-join": "round", "line-cap": "round"},
@@ -631,7 +644,7 @@
     {
       "id": "tunnel-street-unclassified:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "unclassified"], ["==", "tunnel", true]],
       "layout": {"line-join": "round", "line-cap": "round"},
@@ -646,7 +659,7 @@
     {
       "id": "tunnel-street-tertiary-link:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -666,7 +679,7 @@
     {
       "id": "tunnel-street-secondary-link:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -685,7 +698,7 @@
     {
       "id": "tunnel-street-primary-link:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -704,7 +717,7 @@
     {
       "id": "tunnel-street-trunk-link:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -723,7 +736,7 @@
     {
       "id": "tunnel-street-motorway-link:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 12,
       "filter": [
@@ -742,7 +755,7 @@
     {
       "id": "tunnel-street-tertiary:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -762,7 +775,7 @@
     {
       "id": "tunnel-street-secondary:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -783,7 +796,7 @@
     {
       "id": "tunnel-street-primary:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -812,7 +825,7 @@
     {
       "id": "tunnel-street-trunk:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -841,7 +854,7 @@
     {
       "id": "tunnel-street-motorway:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -870,7 +883,7 @@
     {
       "id": "tunnel-way-footway",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "tunnel", true], ["in", "kind", "footway"]],
@@ -886,7 +899,7 @@
     {
       "id": "tunnel-way-steps",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "tunnel", true], ["in", "kind", "steps"]],
@@ -902,7 +915,7 @@
     {
       "id": "tunnel-way-path",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "tunnel", true], ["in", "kind", "path"]],
@@ -918,7 +931,7 @@
     {
       "id": "tunnel-way-cycleway",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "tunnel", true], ["in", "kind", "cycleway"]],
@@ -934,7 +947,7 @@
     {
       "id": "tunnel-street-track",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "track"], ["==", "tunnel", true]],
       "layout": {"line-join": "round", "line-cap": "round"},
@@ -949,7 +962,7 @@
     {
       "id": "tunnel-street-pedestrian",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "pedestrian"], ["==", "tunnel", true]],
       "layout": {"line-join": "round", "line-cap": "round"},
@@ -964,7 +977,7 @@
     {
       "id": "tunnel-street-service",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "service"], ["==", "tunnel", true]],
       "layout": {"line-join": "round", "line-cap": "round"},
@@ -979,7 +992,7 @@
     {
       "id": "tunnel-street-livingstreet",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -998,7 +1011,7 @@
     {
       "id": "tunnel-street-residential",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "residential"], ["==", "tunnel", true]],
       "layout": {"line-join": "round", "line-cap": "round"},
@@ -1013,7 +1026,7 @@
     {
       "id": "tunnel-street-unclassified",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "unclassified"], ["==", "tunnel", true]],
       "layout": {"line-join": "round", "line-cap": "round"},
@@ -1028,7 +1041,7 @@
     {
       "id": "tunnel-street-track-bicycle",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1042,7 +1055,7 @@
     {
       "id": "tunnel-street-pedestrian-bicycle",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1062,7 +1075,7 @@
     {
       "id": "tunnel-street-service-bicycle",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1076,7 +1089,7 @@
     {
       "id": "tunnel-street-livingstreet-bicycle",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1096,7 +1109,7 @@
     {
       "id": "tunnel-street-residential-bicycle",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1116,7 +1129,7 @@
     {
       "id": "tunnel-street-unclassified-bicycle",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1136,7 +1149,7 @@
     {
       "id": "tunnel-street-tertiary-link",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1156,7 +1169,7 @@
     {
       "id": "tunnel-street-secondary-link",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -1174,7 +1187,7 @@
     {
       "id": "tunnel-street-primary-link",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -1192,7 +1205,7 @@
     {
       "id": "tunnel-street-trunk-link",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -1210,7 +1223,7 @@
     {
       "id": "tunnel-street-motorway-link",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 12,
       "filter": [
@@ -1228,7 +1241,7 @@
     {
       "id": "tunnel-street-tertiary",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1248,7 +1261,7 @@
     {
       "id": "tunnel-street-secondary",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1268,7 +1281,7 @@
     {
       "id": "tunnel-street-primary",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1297,7 +1310,7 @@
     {
       "id": "tunnel-street-trunk",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1326,7 +1339,7 @@
     {
       "id": "tunnel-street-motorway",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1355,7 +1368,7 @@
     {
       "id": "tunnel-transport-tram:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -1373,7 +1386,7 @@
     {
       "id": "tunnel-transport-narrowgauge:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -1391,7 +1404,7 @@
     {
       "id": "tunnel-transport-subway:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1418,7 +1431,7 @@
     {
       "id": "tunnel-transport-lightrail:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 8,
       "filter": [
@@ -1436,7 +1449,7 @@
     {
       "id": "tunnel-transport-lightrail-service:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 14,
       "filter": [
@@ -1453,7 +1466,7 @@
     {
       "id": "tunnel-transport-rail:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 8,
       "filter": [
@@ -1471,7 +1484,7 @@
     {
       "id": "tunnel-transport-rail-service:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 14,
       "filter": [
@@ -1488,7 +1501,7 @@
     {
       "id": "tunnel-transport-monorail:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["in", "kind", "monorail"], ["==", "tunnel", true]],
@@ -1501,7 +1514,7 @@
     {
       "id": "tunnel-transport-funicular:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["in", "kind", "funicular"], ["==", "tunnel", true]],
@@ -1514,7 +1527,7 @@
     {
       "id": "tunnel-transport-tram",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -1531,7 +1544,7 @@
     {
       "id": "tunnel-transport-narrowgauge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -1548,7 +1561,7 @@
     {
       "id": "tunnel-transport-subway",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1576,7 +1589,7 @@
     {
       "id": "tunnel-transport-lightrail",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 14,
       "filter": [
@@ -1595,7 +1608,7 @@
     {
       "id": "tunnel-transport-lightrail-service",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -1613,7 +1626,7 @@
     {
       "id": "tunnel-transport-rail",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 14,
       "filter": [
@@ -1632,7 +1645,7 @@
     {
       "id": "tunnel-transport-rail-service",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -1650,7 +1663,7 @@
     {
       "id": "tunnel-transport-monorail",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": ["all", ["in", "kind", "monorail"], ["==", "tunnel", true]],
@@ -1662,7 +1675,7 @@
     {
       "id": "tunnel-transport-funicular",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": ["all", ["in", "kind", "funicular"], ["==", "tunnel", true]],
@@ -1674,7 +1687,7 @@
     {
       "id": "bridge",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "bridges",
       "paint": {
         "fill-color": "rgb(244,239,233)",
@@ -1685,7 +1698,7 @@
     {
       "id": "street-pedestrian-zone",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "street_polygons",
       "filter": [
         "all",
@@ -1701,7 +1714,7 @@
     {
       "id": "way-footway:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -1721,7 +1734,7 @@
     {
       "id": "way-steps:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -1741,7 +1754,7 @@
     {
       "id": "way-airport-taxiway:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["==", "kind", "taxiway"],
       "layout": {"line-join": "round"},
@@ -1755,7 +1768,7 @@
     {
       "id": "way-airport-runway:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["==", "kind", "runway"],
       "layout": {"line-join": "round", "line-cap": "butt"},
@@ -1779,7 +1792,7 @@
     {
       "id": "way-path:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -1799,7 +1812,7 @@
     {
       "id": "way-cycleway:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -1819,7 +1832,7 @@
     {
       "id": "street-track:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1839,7 +1852,7 @@
     {
       "id": "street-pedestrian:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1859,7 +1872,7 @@
     {
       "id": "street-service:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1879,7 +1892,7 @@
     {
       "id": "street-livingstreet:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1899,7 +1912,7 @@
     {
       "id": "street-residential:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1919,7 +1932,7 @@
     {
       "id": "street-unclassified:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1939,7 +1952,7 @@
     {
       "id": "street-tertiary-link:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -1960,7 +1973,7 @@
     {
       "id": "street-secondary-link:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -1979,7 +1992,7 @@
     {
       "id": "street-primary-link:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -1998,7 +2011,7 @@
     {
       "id": "street-trunk-link:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -2017,7 +2030,7 @@
     {
       "id": "street-motorway-link:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 12,
       "filter": [
@@ -2036,7 +2049,7 @@
     {
       "id": "street-tertiary:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2057,7 +2070,7 @@
     {
       "id": "street-secondary:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2078,7 +2091,7 @@
     {
       "id": "street-primary:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2107,7 +2120,7 @@
     {
       "id": "street-trunk:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2136,7 +2149,7 @@
     {
       "id": "street-motorway:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2165,7 +2178,7 @@
     {
       "id": "way-footway",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -2185,7 +2198,7 @@
     {
       "id": "way-steps",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -2205,7 +2218,7 @@
     {
       "id": "way-path",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -2225,7 +2238,7 @@
     {
       "id": "way-cycleway",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -2245,7 +2258,7 @@
     {
       "id": "street-track",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2265,7 +2278,7 @@
     {
       "id": "street-pedestrian",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2285,7 +2298,7 @@
     {
       "id": "street-service",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2310,7 +2323,7 @@
     {
       "id": "street-livingstreet",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2330,7 +2343,7 @@
     {
       "id": "street-residential",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2350,7 +2363,7 @@
     {
       "id": "street-unclassified",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2370,7 +2383,7 @@
     {
       "id": "street-track-bicycle",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2385,7 +2398,7 @@
     {
       "id": "street-pedestrian-bicycle",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2406,7 +2419,7 @@
     {
       "id": "street-service-bicycle",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2421,7 +2434,7 @@
     {
       "id": "street-livingstreet-bicycle",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2442,7 +2455,7 @@
     {
       "id": "street-residential-bicycle",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2463,7 +2476,7 @@
     {
       "id": "street-unclassified-bicycle",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2484,7 +2497,7 @@
     {
       "id": "street-tertiary-link",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2505,7 +2518,7 @@
     {
       "id": "street-secondary-link",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -2524,7 +2537,7 @@
     {
       "id": "street-primary-link",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -2543,7 +2556,7 @@
     {
       "id": "street-trunk-link",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -2562,7 +2575,7 @@
     {
       "id": "street-motorway-link",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 12,
       "filter": [
@@ -2581,7 +2594,7 @@
     {
       "id": "street-tertiary",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2602,7 +2615,7 @@
     {
       "id": "street-secondary",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2623,7 +2636,7 @@
     {
       "id": "street-primary",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2653,7 +2666,7 @@
     {
       "id": "street-trunk",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2683,7 +2696,7 @@
     {
       "id": "street-motorway",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2713,7 +2726,7 @@
     {
       "id": "way-airport-taxiway",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["==", "kind", "taxiway"],
       "layout": {"line-join": "round", "line-cap": "butt"},
@@ -2728,7 +2741,7 @@
     {
       "id": "way-airport-runway",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["==", "kind", "runway"],
       "layout": {"line-join": "round"},
@@ -2753,7 +2766,7 @@
     {
       "id": "way-airport-taxiway:centreline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["==", "kind", "taxiway"],
       "layout": {"line-join": "round"},
@@ -2768,7 +2781,7 @@
     {
       "id": "way-airport-runway:centreline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["==", "kind", "runway"],
       "layout": {"line-join": "round", "visibility": "visible"},
@@ -2786,7 +2799,7 @@
     {
       "id": "transport-tram:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -2805,7 +2818,7 @@
     {
       "id": "transport-narrowgauge:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -2824,7 +2837,7 @@
     {
       "id": "transport-subway:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -2852,7 +2865,7 @@
     {
       "id": "transport-lightrail:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 8,
       "filter": [
@@ -2871,7 +2884,7 @@
     {
       "id": "transport-lightrail-service:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 14,
       "filter": [
@@ -2889,7 +2902,7 @@
     {
       "id": "transport-rail:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 8,
       "filter": [
@@ -2908,7 +2921,7 @@
     {
       "id": "transport-rail-service:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 14,
       "filter": [
@@ -2926,7 +2939,7 @@
     {
       "id": "transport-monorail:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -2944,7 +2957,7 @@
     {
       "id": "transport-funicular:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -2962,7 +2975,7 @@
     {
       "id": "transport-tram",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -2980,7 +2993,7 @@
     {
       "id": "transport-narrowgauge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -2998,7 +3011,7 @@
     {
       "id": "transport-subway",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -3027,7 +3040,7 @@
     {
       "id": "transport-lightrail",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 14,
       "filter": [
@@ -3047,7 +3060,7 @@
     {
       "id": "transport-lightrail-service",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -3066,7 +3079,7 @@
     {
       "id": "transport-rail",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 14,
       "filter": [
@@ -3086,7 +3099,7 @@
     {
       "id": "transport-rail-service",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -3105,7 +3118,7 @@
     {
       "id": "transport-monorail",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -3122,7 +3135,7 @@
     {
       "id": "transport-funicular",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -3139,7 +3152,7 @@
     {
       "id": "transport-ferry",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "ferries",
       "minzoom": 10,
       "paint": {
@@ -3152,7 +3165,7 @@
     {
       "id": "bridge-way-footway:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "bridge", true], ["in", "kind", "footway"]],
@@ -3168,7 +3181,7 @@
     {
       "id": "bridge-way-steps:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "bridge", true], ["in", "kind", "steps"]],
@@ -3184,7 +3197,7 @@
     {
       "id": "bridge-way-path:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "bridge", true], ["in", "kind", "path"]],
@@ -3200,7 +3213,7 @@
     {
       "id": "bridge-way-cycleway:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "bridge", true], ["in", "kind", "cycleway"]],
@@ -3216,7 +3229,7 @@
     {
       "id": "bridge-street-track:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "track"], ["==", "bridge", true]],
       "layout": {"line-cap": "butt", "line-join": "round"},
@@ -3231,7 +3244,7 @@
     {
       "id": "bridge-street-pedestrian:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "pedestrian"], ["==", "bridge", true]],
       "layout": {"line-cap": "butt", "line-join": "round"},
@@ -3246,7 +3259,7 @@
     {
       "id": "bridge-street-service:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "service"], ["==", "bridge", true]],
       "layout": {"line-cap": "butt", "line-join": "round"},
@@ -3261,7 +3274,7 @@
     {
       "id": "bridge-street-livingstreet:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -3280,7 +3293,7 @@
     {
       "id": "bridge-street-residential:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "residential"], ["==", "bridge", true]],
       "layout": {"line-cap": "butt", "line-join": "round"},
@@ -3295,7 +3308,7 @@
     {
       "id": "bridge-street-unclassified:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "unclassified"], ["==", "bridge", true]],
       "layout": {"line-cap": "butt", "line-join": "round"},
@@ -3310,7 +3323,7 @@
     {
       "id": "bridge-street-tertiary-link:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -3330,7 +3343,7 @@
     {
       "id": "bridge-street-secondary-link:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -3351,7 +3364,7 @@
     {
       "id": "bridge-street-primary-link:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -3372,7 +3385,7 @@
     {
       "id": "bridge-street-trunk-link:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -3393,7 +3406,7 @@
     {
       "id": "bridge-street-motorway-link:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 12,
       "filter": [
@@ -3414,7 +3427,7 @@
     {
       "id": "bridge-street-tertiary:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -3434,7 +3447,7 @@
     {
       "id": "bridge-street-secondary:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -3454,7 +3467,7 @@
     {
       "id": "bridge-street-primary:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -3483,7 +3496,7 @@
     {
       "id": "bridge-street-trunk:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -3512,7 +3525,7 @@
     {
       "id": "bridge-street-motorway:bridge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -3541,7 +3554,7 @@
     {
       "id": "bridge-street-pedestrian-zone",
       "type": "fill",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "street_polygons",
       "filter": ["all", ["==", "bridge", true], ["==", "kind", "pedestrian"]],
       "paint": {
@@ -3552,7 +3565,7 @@
     {
       "id": "bridge-way-footway:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "bridge", true], ["in", "kind", "footway"]],
@@ -3567,7 +3580,7 @@
     {
       "id": "bridge-way-steps:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "bridge", true], ["in", "kind", "steps"]],
@@ -3582,7 +3595,7 @@
     {
       "id": "bridge-way-path:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "bridge", true], ["in", "kind", "path"]],
@@ -3597,7 +3610,7 @@
     {
       "id": "bridge-way-cycleway:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "bridge", true], ["in", "kind", "cycleway"]],
@@ -3612,7 +3625,7 @@
     {
       "id": "bridge-street-track:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "track"], ["==", "bridge", true]],
       "layout": {"line-join": "round", "line-cap": "butt"},
@@ -3627,7 +3640,7 @@
     {
       "id": "bridge-street-pedestrian:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "pedestrian"], ["==", "bridge", true]],
       "layout": {"line-join": "round", "line-cap": "butt"},
@@ -3642,7 +3655,7 @@
     {
       "id": "bridge-street-service:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "service"], ["==", "bridge", true]],
       "layout": {"line-join": "round", "line-cap": "butt"},
@@ -3657,7 +3670,7 @@
     {
       "id": "bridge-street-livingstreet:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -3676,7 +3689,7 @@
     {
       "id": "bridge-street-residential:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "residential"], ["==", "bridge", true]],
       "layout": {"line-join": "round", "line-cap": "butt"},
@@ -3691,7 +3704,7 @@
     {
       "id": "bridge-street-unclassified:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "unclassified"], ["==", "bridge", true]],
       "layout": {"line-join": "round", "line-cap": "butt"},
@@ -3706,7 +3719,7 @@
     {
       "id": "bridge-street-tertiary-link:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -3726,7 +3739,7 @@
     {
       "id": "bridge-street-secondary-link:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -3744,7 +3757,7 @@
     {
       "id": "bridge-street-primary-link:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -3762,7 +3775,7 @@
     {
       "id": "bridge-street-trunk-link:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -3780,7 +3793,7 @@
     {
       "id": "bridge-street-motorway-link:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 12,
       "filter": [
@@ -3798,7 +3811,7 @@
     {
       "id": "bridge-street-tertiary:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -3818,7 +3831,7 @@
     {
       "id": "bridge-street-secondary:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -3838,7 +3851,7 @@
     {
       "id": "bridge-street-primary:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -3866,7 +3879,7 @@
     {
       "id": "bridge-street-trunk:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -3894,7 +3907,7 @@
     {
       "id": "bridge-street-motorway:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -3922,7 +3935,7 @@
     {
       "id": "bridge-way-footway",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "bridge", true], ["in", "kind", "footway"]],
@@ -3937,7 +3950,7 @@
     {
       "id": "bridge-way-steps",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "bridge", true], ["in", "kind", "steps"]],
@@ -3952,7 +3965,7 @@
     {
       "id": "bridge-way-path",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "bridge", true], ["in", "kind", "path"]],
@@ -3967,7 +3980,7 @@
     {
       "id": "bridge-way-cycleway",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["==", "bridge", true], ["in", "kind", "cycleway"]],
@@ -3982,7 +3995,7 @@
     {
       "id": "bridge-street-track",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "track"], ["==", "bridge", true]],
       "layout": {"line-join": "round", "line-cap": "butt"},
@@ -3997,7 +4010,7 @@
     {
       "id": "bridge-street-pedestrian",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "pedestrian"], ["==", "bridge", true]],
       "layout": {"line-join": "round", "line-cap": "butt"},
@@ -4012,7 +4025,7 @@
     {
       "id": "bridge-street-service",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "service"], ["==", "bridge", true]],
       "layout": {"line-join": "round", "line-cap": "butt"},
@@ -4027,7 +4040,7 @@
     {
       "id": "bridge-street-livingstreet",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -4046,7 +4059,7 @@
     {
       "id": "bridge-street-residential",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "residential"], ["==", "bridge", true]],
       "layout": {"line-join": "round", "line-cap": "butt"},
@@ -4061,7 +4074,7 @@
     {
       "id": "bridge-street-unclassified",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": ["all", ["==", "kind", "unclassified"], ["==", "bridge", true]],
       "layout": {"line-join": "round", "line-cap": "butt"},
@@ -4076,7 +4089,7 @@
     {
       "id": "bridge-street-track-bicycle",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -4090,7 +4103,7 @@
     {
       "id": "bridge-street-pedestrian-bicycle",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -4110,7 +4123,7 @@
     {
       "id": "bridge-street-service-bicycle",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -4124,7 +4137,7 @@
     {
       "id": "bridge-street-livingstreet-bicycle",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -4144,7 +4157,7 @@
     {
       "id": "bridge-street-residential-bicycle",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -4164,7 +4177,7 @@
     {
       "id": "bridge-street-unclassified-bicycle",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -4184,7 +4197,7 @@
     {
       "id": "bridge-street-tertiary-link",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -4204,7 +4217,7 @@
     {
       "id": "bridge-street-secondary-link",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -4222,7 +4235,7 @@
     {
       "id": "bridge-street-primary-link",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -4240,7 +4253,7 @@
     {
       "id": "bridge-street-trunk-link",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -4258,7 +4271,7 @@
     {
       "id": "bridge-street-motorway-link",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 12,
       "filter": [
@@ -4276,7 +4289,7 @@
     {
       "id": "bridge-street-tertiary",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -4296,7 +4309,7 @@
     {
       "id": "bridge-street-secondary",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -4316,7 +4329,7 @@
     {
       "id": "bridge-street-primary",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -4345,7 +4358,7 @@
     {
       "id": "bridge-street-trunk",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -4374,7 +4387,7 @@
     {
       "id": "bridge-street-motorway",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -4403,7 +4416,7 @@
     {
       "id": "bridge-transport-tram:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -4421,7 +4434,7 @@
     {
       "id": "bridge-transport-narrowgauge:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -4439,7 +4452,7 @@
     {
       "id": "bridge-transport-subway:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -4466,7 +4479,7 @@
     {
       "id": "bridge-transport-lightrail:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 8,
       "filter": [
@@ -4484,7 +4497,7 @@
     {
       "id": "bridge-transport-lightrail-service:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 14,
       "filter": [
@@ -4501,7 +4514,7 @@
     {
       "id": "bridge-transport-rail:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 8,
       "filter": [
@@ -4519,7 +4532,7 @@
     {
       "id": "bridge-transport-rail-service:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 14,
       "filter": [
@@ -4536,7 +4549,7 @@
     {
       "id": "bridge-transport-monorail:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["in", "kind", "monorail"], ["==", "bridge", true]],
@@ -4549,7 +4562,7 @@
     {
       "id": "bridge-transport-funicular:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": ["all", ["in", "kind", "funicular"], ["==", "bridge", true]],
@@ -4562,7 +4575,7 @@
     {
       "id": "bridge-transport-tram",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -4579,7 +4592,7 @@
     {
       "id": "bridge-transport-narrowgauge",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": [
@@ -4596,7 +4609,7 @@
     {
       "id": "bridge-transport-subway",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "filter": [
         "all",
@@ -4624,7 +4637,7 @@
     {
       "id": "bridge-transport-lightrail",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 14,
       "filter": [
@@ -4643,7 +4656,7 @@
     {
       "id": "bridge-transport-lightrail-service",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -4661,7 +4674,7 @@
     {
       "id": "bridge-transport-rail",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 14,
       "filter": [
@@ -4680,7 +4693,7 @@
     {
       "id": "bridge-transport-rail-service",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 15,
       "filter": [
@@ -4698,7 +4711,7 @@
     {
       "id": "bridge-transport-monorail",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": ["all", ["in", "kind", "monorail"], ["==", "bridge", true]],
@@ -4710,7 +4723,7 @@
     {
       "id": "bridge-transport-funicular",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 13,
       "filter": ["all", ["in", "kind", "funicular"], ["==", "bridge", true]],
@@ -4722,7 +4735,7 @@
     {
       "id": "poi-amenity",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "pois",
       "minzoom": 16,
       "filter": ["to-boolean", ["get", "amenity"]],
@@ -4843,7 +4856,7 @@
     {
       "id": "poi-leisure",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "pois",
       "minzoom": 16,
       "filter": ["to-boolean", ["get", "leisure"]],
@@ -4880,7 +4893,7 @@
     {
       "id": "poi-tourism",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "pois",
       "minzoom": 16,
       "filter": ["to-boolean", ["get", "tourism"]],
@@ -4915,7 +4928,7 @@
     {
       "id": "poi-shop",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "pois",
       "minzoom": 16,
       "filter": ["to-boolean", ["get", "shop"]],
@@ -5000,7 +5013,7 @@
     {
       "id": "poi-man_made",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "pois",
       "minzoom": 16,
       "filter": ["to-boolean", ["get", "man_made"]],
@@ -5035,7 +5048,7 @@
     {
       "id": "poi-historic",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "pois",
       "minzoom": 16,
       "filter": ["to-boolean", ["get", "historic"]],
@@ -5068,7 +5081,7 @@
     {
       "id": "poi-emergency",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "pois",
       "minzoom": 16,
       "filter": ["to-boolean", ["get", "emergency"]],
@@ -5099,7 +5112,7 @@
     {
       "id": "poi-highway",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "pois",
       "minzoom": 16,
       "filter": ["to-boolean", ["get", "highway"]],
@@ -5119,7 +5132,7 @@
     {
       "id": "poi-office",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "pois",
       "minzoom": 16,
       "filter": ["to-boolean", ["get", "office"]],
@@ -5139,7 +5152,7 @@
     {
       "id": "boundary-country:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "boundaries",
       "filter": [
         "all",
@@ -5159,7 +5172,7 @@
     {
       "id": "boundary-country-disputed:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "boundaries",
       "filter": [
         "all",
@@ -5177,7 +5190,7 @@
     {
       "id": "boundary-state:outline",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "boundaries",
       "filter": [
         "all",
@@ -5197,7 +5210,7 @@
     {
       "id": "boundary-country",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "boundaries",
       "filter": [
         "all",
@@ -5215,7 +5228,7 @@
     {
       "id": "boundary-country-disputed",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "boundaries",
       "filter": [
         "all",
@@ -5234,7 +5247,7 @@
     {
       "id": "boundary-state",
       "type": "line",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "boundaries",
       "filter": [
         "all",
@@ -5252,7 +5265,7 @@
     {
       "id": "label-address-housenumber",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "addresses",
       "minzoom": 17,
       "filter": ["has", "housenumber"],
@@ -5274,7 +5287,7 @@
     {
       "id": "label-motorway-shield",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "street_labels",
       "minzoom": 14,
       "filter": ["==", "kind", "motorway"],
@@ -5297,7 +5310,7 @@
     {
       "id": "label-street-pedestrian",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "street_labels",
       "minzoom": 12,
       "filter": ["==", "kind", "pedestrian"],
@@ -5319,7 +5332,7 @@
     {
       "id": "label-street-livingstreet",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "street_labels",
       "minzoom": 12,
       "filter": ["==", "kind", "living_street"],
@@ -5341,7 +5354,7 @@
     {
       "id": "label-street-residential",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "street_labels",
       "minzoom": 12,
       "filter": ["==", "kind", "residential"],
@@ -5363,7 +5376,7 @@
     {
       "id": "label-street-unclassified",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "street_labels",
       "minzoom": 12,
       "filter": ["==", "kind", "unclassified"],
@@ -5385,7 +5398,7 @@
     {
       "id": "label-street-tertiary",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "street_labels",
       "minzoom": 12,
       "filter": ["==", "kind", "tertiary"],
@@ -5407,7 +5420,7 @@
     {
       "id": "label-street-secondary",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "street_labels",
       "minzoom": 12,
       "filter": ["==", "kind", "secondary"],
@@ -5429,7 +5442,7 @@
     {
       "id": "label-street-primary",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "street_labels",
       "minzoom": 12,
       "filter": ["==", "kind", "primary"],
@@ -5451,7 +5464,7 @@
     {
       "id": "label-street-trunk",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "street_labels",
       "minzoom": 12,
       "filter": ["==", "kind", "trunk"],
@@ -5473,7 +5486,7 @@
     {
       "id": "label-place-neighbourhood",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "place_labels",
       "minzoom": 14,
       "filter": ["==", "kind", "neighbourhood"],
@@ -5494,7 +5507,7 @@
     {
       "id": "label-place-quarter",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "place_labels",
       "minzoom": 13,
       "filter": ["==", "kind", "quarter"],
@@ -5515,7 +5528,7 @@
     {
       "id": "label-place-suburb",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "place_labels",
       "minzoom": 11,
       "filter": ["==", "kind", "suburb"],
@@ -5536,7 +5549,7 @@
     {
       "id": "label-place-hamlet",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "place_labels",
       "minzoom": 13,
       "filter": ["==", "kind", "hamlet"],
@@ -5556,7 +5569,7 @@
     {
       "id": "label-place-village",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "place_labels",
       "minzoom": 11,
       "filter": ["==", "kind", "village"],
@@ -5576,7 +5589,7 @@
     {
       "id": "label-place-town",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "place_labels",
       "minzoom": 9,
       "filter": ["==", "kind", "town"],
@@ -5596,7 +5609,7 @@
     {
       "id": "label-boundary-state",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "boundary_labels",
       "minzoom": 5,
       "filter": ["in", "admin_level", 4, "4"],
@@ -5621,7 +5634,7 @@
     {
       "id": "label-place-city",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "place_labels",
       "minzoom": 7,
       "filter": ["==", "kind", "city"],
@@ -5641,7 +5654,7 @@
     {
       "id": "label-place-statecapital",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "place_labels",
       "minzoom": 6,
       "filter": ["==", "kind", "state_capital"],
@@ -5661,7 +5674,7 @@
     {
       "id": "label-place-capital",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "place_labels",
       "minzoom": 5,
       "filter": ["==", "kind", "capital"],
@@ -5681,7 +5694,7 @@
     {
       "id": "label-boundary-country-small",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "boundary_labels",
       "minzoom": 4,
       "filter": [
@@ -5710,7 +5723,7 @@
     {
       "id": "label-boundary-country-medium",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "boundary_labels",
       "minzoom": 3,
       "filter": [
@@ -5740,7 +5753,7 @@
     {
       "id": "label-boundary-country-large",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "boundary_labels",
       "minzoom": 2,
       "filter": [
@@ -5769,7 +5782,7 @@
     {
       "id": "marking-oneway",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 16,
       "filter": [
@@ -5805,7 +5818,7 @@
     {
       "id": "marking-oneway-reverse",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "streets",
       "minzoom": 16,
       "filter": [
@@ -5839,9 +5852,66 @@
       }
     },
     {
+      "id": "symbol-transit-ferry",
+      "type": "symbol",
+      "source": "local",
+      "source-layer": "public_transport",
+      "minzoom": 16,
+      "filter": ["all", ["==", "kind", "ferry_terminal"]],
+      "layout": {
+        "text-field": ["get", "name"],
+        "icon-size": {"stops": [[16, 0.5], [18, 1]]},
+        "symbol-placement": "point",
+        "icon-keep-upright": true,
+        "text-font": ["noto_sans_regular"],
+        "text-size": 10,
+        "icon-anchor": "bottom",
+        "text-anchor": "top"
+      },
+      "paint": {
+        "icon-opacity": 0.7,
+        "icon-color": "rgb(102,98,106)",
+        "text-color": "rgb(102,98,106)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 2,
+        "text-halo-blur": 1
+      }
+    },
+    {
+      "id": "symbol-transit-ferry-official",
+      "type": "symbol",
+      "source": "local",
+      "source-layer": "public_transport",
+      "minzoom": 16,
+      "filter": [
+        "all",
+        ["==", "kind", "ferry_terminal"],
+        ["in", "network", "Sydney Ferries"]
+      ],
+      "layout": {
+        "text-field": ["get", "name"],
+        "icon-size": {"stops": [[16, 0.5], [18, 1]]},
+        "symbol-placement": "point",
+        "icon-keep-upright": true,
+        "text-font": ["noto_sans_regular"],
+        "text-size": 10,
+        "icon-anchor": "bottom",
+        "text-anchor": "top",
+        "icon-image": "nswtransport:ferry"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "icon-color": "rgb(102,98,106)",
+        "text-color": "rgb(102,98,106)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 2,
+        "text-halo-blur": 1
+      }
+    },
+    {
       "id": "symbol-transit-bus",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "public_transport",
       "minzoom": 16,
       "filter": ["==", "kind", "bus_stop"],
@@ -5866,9 +5936,56 @@
       }
     },
     {
+      "id": "symbol-transit-bus-official",
+      "type": "symbol",
+      "source": "local",
+      "source-layer": "public_transport",
+      "minzoom": 16,
+      "filter": [
+        "all",
+        ["==", "kind", "bus_stop"],
+        [
+          "in",
+          "network",
+          "Transport Buses",
+          "Skybus",
+          "PTV - Metropolitan Buses"
+        ]
+      ],
+      "layout": {
+        "text-field": ["get", "name"],
+        "icon-size": {"stops": [[16, 0.5], [18, 1]]},
+        "symbol-placement": "point",
+        "icon-keep-upright": true,
+        "text-font": ["noto_sans_regular"],
+        "text-size": 10,
+        "icon-anchor": "bottom",
+        "text-anchor": "top",
+        "icon-image": [
+          "match",
+          ["get", "network"],
+          "Transport Buses",
+          "nswtransport:bus",
+          "PTV - Metropolitan Buses",
+          "ptv:bus",
+          "Skybus",
+          "ptv:skybus",
+          ""
+        ]
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "icon-color": "rgb(102,98,106)",
+        "text-color": "rgb(102,98,106)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 2,
+        "text-halo-blur": 1
+      }
+    },
+    {
       "id": "symbol-transit-tram",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "public_transport",
       "minzoom": 15,
       "filter": ["==", "kind", "tram_stop"],
@@ -5893,9 +6010,40 @@
       }
     },
     {
+      "id": "symbol-transit-tram-official",
+      "type": "symbol",
+      "source": "local",
+      "source-layer": "public_transport",
+      "minzoom": 15,
+      "filter": [
+        "all",
+        ["==", "kind", "tram_stop"],
+        ["in", "network", "PTV - Metropolitan Trams"]
+      ],
+      "layout": {
+        "text-field": ["get", "name"],
+        "icon-size": {"stops": [[15, 0.5], [17, 1]]},
+        "symbol-placement": "point",
+        "icon-keep-upright": true,
+        "text-font": ["noto_sans_regular"],
+        "text-size": 10,
+        "icon-anchor": "bottom",
+        "text-anchor": "top",
+        "icon-image": "ptv:tram"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "icon-color": "rgb(102,98,106)",
+        "text-color": "rgb(102,98,106)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 2,
+        "text-halo-blur": 1
+      }
+    },
+    {
       "id": "symbol-transit-subway",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "public_transport",
       "minzoom": 14,
       "filter": [
@@ -5924,9 +6072,41 @@
       }
     },
     {
+      "id": "symbol-transit-subway-official",
+      "type": "symbol",
+      "source": "local",
+      "source-layer": "public_transport",
+      "minzoom": 14,
+      "filter": [
+        "all",
+        ["in", "kind", "station", "halt"],
+        ["==", "station", "subway"],
+        ["in", "network", "Sydney Metro"]
+      ],
+      "layout": {
+        "text-field": ["get", "name"],
+        "icon-size": {"stops": [[13, 0.5], [15, 1]]},
+        "symbol-placement": "point",
+        "icon-keep-upright": true,
+        "text-font": ["noto_sans_regular"],
+        "text-size": 10,
+        "icon-anchor": "bottom",
+        "text-anchor": "top",
+        "icon-image": "nswtransport:metro"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "icon-color": "rgb(102,98,106)",
+        "text-color": "rgb(102,98,106)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 2,
+        "text-halo-blur": 1
+      }
+    },
+    {
       "id": "symbol-transit-lightrail",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "public_transport",
       "minzoom": 14,
       "filter": [
@@ -5955,9 +6135,41 @@
       }
     },
     {
+      "id": "symbol-transit-lightrail-official",
+      "type": "symbol",
+      "source": "local",
+      "source-layer": "public_transport",
+      "minzoom": 14,
+      "filter": [
+        "all",
+        ["in", "kind", "station", "halt"],
+        ["==", "station", "light_rail"],
+        ["==", "network", "Sydney Light Rail"]
+      ],
+      "layout": {
+        "text-field": ["get", "name"],
+        "icon-size": {"stops": [[14, 0.5], [16, 1]]},
+        "symbol-placement": "point",
+        "icon-keep-upright": true,
+        "text-font": ["noto_sans_regular"],
+        "text-size": 10,
+        "icon-anchor": "bottom",
+        "text-anchor": "top",
+        "icon-image": "nswtransport:tram"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "icon-color": "rgb(102,98,106)",
+        "text-color": "rgb(102,98,106)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 2,
+        "text-halo-blur": 1
+      }
+    },
+    {
       "id": "symbol-transit-station",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "public_transport",
       "minzoom": 13,
       "filter": [
@@ -5986,9 +6198,57 @@
       }
     },
     {
+      "id": "symbol-transit-station-official",
+      "type": "symbol",
+      "source": "local",
+      "source-layer": "public_transport",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        ["in", "kind", "station", "halt"],
+        ["!in", "station", "light_rail", "subway"],
+        [
+          "in",
+          "network",
+          "Sydney Trains",
+          "NSW TrainLink",
+          "PTV - Metropolitan Trains"
+        ]
+      ],
+      "layout": {
+        "text-field": ["get", "name"],
+        "icon-size": {"stops": [[13, 0.5], [15, 1]]},
+        "symbol-placement": "point",
+        "icon-keep-upright": true,
+        "text-font": ["noto_sans_regular"],
+        "text-size": 10,
+        "icon-anchor": "bottom",
+        "text-anchor": "top",
+        "icon-image": [
+          "match",
+          ["get", "network"],
+          "Sydney Trains",
+          "nswtransport:train",
+          "NSW TrainLink",
+          "nswtransport:train",
+          "PTV - Metropolitan Trains",
+          "ptv:train",
+          ""
+        ]
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "icon-color": "rgb(102,98,106)",
+        "text-color": "rgb(102,98,106)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 2,
+        "text-halo-blur": 1
+      }
+    },
+    {
       "id": "symbol-transit-airfield",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "public_transport",
       "minzoom": 13,
       "filter": ["all", ["==", "kind", "aerodrome"], ["!has", "iata"]],
@@ -6015,7 +6275,7 @@
     {
       "id": "symbol-transit-airport",
       "type": "symbol",
-      "source": "OSMF",
+      "source": "local",
       "source-layer": "public_transport",
       "minzoom": 12,
       "filter": ["all", ["==", "kind", "aerodrome"], ["has", "iata"]],
