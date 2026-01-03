@@ -1,0 +1,60 @@
+name: Build & Deploy PMTiles
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "config/**"
+      - ".github/workflows/build-and-deploy-pmtiles.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Pull Planetiler image
+        run: |
+          docker pull ghcr.io/onthegomap/planetiler:latest
+
+      - name: Build PMTiles with Planetiler
+        run: |
+          mkdir -p out
+          docker run --rm \
+            --memory=4g \
+            -v "$PWD:/data" \
+            ghcr.io/onthegomap/planetiler:latest \
+            --config /data/config/planetiler.yaml \
+            --output /data/out/australia.pmtiles
+
+      - name: Upload PMTiles artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pmtiles
+          path: out/australia.pmtiles
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download PMTiles artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: pmtiles
+          path: out/
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.TILESERVER_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.TILESERVER_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy PMTiles to tileserver
+        run: |
+          rsync -avz --progress \
+            out/australia.pmtiles \
+            ${{ secrets.TILESERVER_USER }}@${{ secrets.TILESERVER_HOST }}:/srv/tiles/
