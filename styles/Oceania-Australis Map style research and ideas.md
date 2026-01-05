@@ -84,26 +84,3 @@ Road Hierachy Colours
 | Primary   | Orange                 | Orange                 | Red (Solid)       |
 | Secondary | Orange                 |                        |                   |
 | Other     | White                  | White                  |                   |
-
-## Attachments
-
-### 1. NSW SIX Maps - road hierarchy colours
-
-| New style, vector topo (motorway=red, trunk=deep orange, primary=orange, secondary=yellow, other=white) | Old style, raster topo (motorway=orange, trunk=yellow, primary= orange, secondary=orange, other=white) |
-| :--- | :--- |
-| [![](./images/NSW%20SDT%20Explorer%20screenshot%20-%20vector.png)](https://portal.spatial.nsw.gov.au/explorer/index.html) | [![](./images/NSW%20SIX%20Maps%20screenshot%20-%20raster.png)](https://maps.six.nsw.gov.au/) |
-| [![Vector basemap legend](./images/NSW%20Vector%20Base%20Map%20Legend.png)](https://portal.spatial.nsw.gov.au/portal/sharing/rest/content/items/9af1c6a190bf409ab352a581866380e8/data) | |
-
-### 2. VIC Emergency Map - road hierarchy colours
-
-| ![][image3] ![][image4] (motorway=blue (toll)/green (free), trunk=red (outline), primary=red (solid)) |
-| :---- |
-
-### 3. Sydney Plan
-
-| ![Page 17 of the draft Sydney Plan - an overview](./images/The-Sydney-Plan-overview.jpg) |
-| :---- |
-| ![Page 18 of the draft Sydney Plan](./images/The%20Sydney%20Plan%20pg18.jpg) |
-| ![Page 38 of the draft Sydney Plan](./images/The%20Sydney%20Plan%20pg38.jpg) |
-| ![Page 32 of the draft Sydney Plan](./images/The%20Sydney%20Plan%20pg32.jpg) |
-| ![Page 66 of the draft Sydney Plan](./images/The%20Sydney%20Plan%20pg66.jpg) |
