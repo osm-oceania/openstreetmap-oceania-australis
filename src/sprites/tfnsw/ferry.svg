@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="24.000008"
+   height="24.000008"
+   viewBox="0 0 24.000008 24.000008"
+   sodipodi:docname="ferry.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="19.32555"
+     inkscape:cx="7.6841282"
+     inkscape:cy="5.9765441"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1912"
+     inkscape:window-y="66"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <defs
+     id="defs1" />
+  <g
+     id="g1"
+     transform="scale(0.01270003)">
+    <g
+       id="group-R5">
+      <path
+         id="path2"
+         d="M 7086.58,14173.2 C 3179.01,14173.2 0,10994.2 0,7086.48 0,3179.1 3179.01,0 7086.58,0 c 3907.52,0 7086.62,3179.1 7086.62,7086.48 0,3907.72 -3179.1,7086.72 -7086.62,7086.72 v 0"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         transform="matrix(0.13333333,0,0,-0.13333333,0,1889.76)" />
+      <path
+         id="path3"
+         d="m 7086.61,1181.1 c -3256.36,0 -5905.51,2649.2 -5905.51,5905.4 0,3256.4 2649.15,5905.6 5905.51,5905.6 3256.29,0 5905.49,-2649.2 5905.49,-5905.6 0,-3256.2 -2649.2,-5905.4 -5905.49,-5905.4"
+         style="fill:#52be36;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         transform="matrix(0.13333333,0,0,-0.13333333,0,1889.76)" />
+      <path
+         id="path4"
+         d="m 5455.19,3248.2 c -70.65,0 -141.22,40.4 -141.22,141.1 v 7240.8 h 3983.4 c 80.82,0 151.32,-50.3 151.32,-141.2 v -978.21 c 0,-70.68 -30.39,-161.27 -141.15,-161.27 H 6766.09 V 7413.05 h 2329.55 c 80.78,0 131.16,-60.61 131.16,-151.38 v -947.76 c 0,-80.78 -50.38,-141.36 -131.16,-141.36 H 6766.09 V 3389.3 c 0,-90.7 -70.71,-141.1 -131.12,-141.1 H 5455.19"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         transform="matrix(0.13333333,0,0,-0.13333333,0,1889.76)" />
+    </g>
+  </g>
+</svg>

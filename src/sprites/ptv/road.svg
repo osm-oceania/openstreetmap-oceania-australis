@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 27.8.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   version="1.1"
+   id="Artwork"
+   x="0px"
+   y="0px"
+   viewBox="0 0 24.000001 24.000001"
+   xml:space="preserve"
+   sodipodi:docname="road.svg"
+   width="24"
+   height="24"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs2" /><sodipodi:namedview
+   id="namedview2"
+   pagecolor="#ffffff"
+   bordercolor="#000000"
+   borderopacity="0.25"
+   inkscape:showpageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   inkscape:deskcolor="#d1d1d1"
+   inkscape:zoom="2.8469626"
+   inkscape:cx="141.55437"
+   inkscape:cy="141.73"
+   inkscape:window-width="1920"
+   inkscape:window-height="1009"
+   inkscape:window-x="1912"
+   inkscape:window-y="66"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Artwork" />
+<style
+   type="text/css"
+   id="style1">
+	.st0{fill:#046A38;}
+	.st1{fill:#FFFFFF;}
+</style>
+
+<g
+   id="g2"
+   transform="scale(0.08466803)"><path
+     class="st0"
+     d="M 283.46,141.73 C 283.46,220.01 220,283.46 141.73,283.46 63.46,283.46 0,220.01 0,141.73 0,63.46 63.46,0 141.74,0 220.01,0 283.46,63.46 283.46,141.73"
+     id="path1" /><path
+     class="st1"
+     d="m 202.44,159.55 c -6.84,0.02 -12.33,-5.64 -12.37,-12.61 0.04,-7.02 5.54,-12.69 12.37,-12.63 6.72,-0.06 12.22,5.61 12.26,12.63 -0.04,6.96 -5.54,12.63 -12.26,12.61 M 84.24,119.92 95.19,90.4 c 1.32,-4.2 3.37,-7.19 8.22,-7.26 h 76.65 c 4.77,0.07 6.83,3.07 8.21,7.26 l 10.95,29.52 z m -3.21,39.63 c -6.79,0.02 -12.29,-5.64 -12.26,-12.61 -0.03,-7.02 5.47,-12.69 12.26,-12.63 6.77,-0.06 12.27,5.61 12.25,12.63 0.02,6.96 -5.49,12.63 -12.25,12.61 M 214.22,120.27 199.7,82.77 c -2.72,-7.18 -8.65,-13.28 -19.88,-13.34 h -76.3 C 92.35,69.48 86.41,75.59 83.64,82.77 l -14.52,37.49 c -5.77,0.74 -15.97,7.52 -15.95,20.35 v 47.74 h 14.17 v 15.24 c -0.03,18.79 26.55,18.57 26.54,0 v -15.24 h 95.59 v 15.24 c 0.06,18.57 26.64,18.79 26.66,0 v -15.24 h 14.17 v -47.74 c -0.05,-12.82 -10.26,-19.6 -16.08,-20.34"
+     id="path2" /></g>
+</svg>
