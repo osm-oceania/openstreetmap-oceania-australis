@@ -1,0 +1,4 @@
+*.pbf
+*.jar
+data/
+tileserver-config.json
