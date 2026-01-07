@@ -5,21 +5,21 @@
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
     "maputnik:renderer": "mlgljs"
   },
-    "projection": {"type": "globe"},
+  "projection": {"type": "globe"},
   "sources": {
     "shortbread": {
       "type": "vector",
-      "url": "pmtiles://{local}"
+      "url": "http://localhost:8080/data/local.json"
     }
   },
   "sprite": [
     {
       "id": "basics",
-      "url": "https://tiles.versatiles.org/assets/sprites/basics/sprites" 
+      "url": "https://tiles.versatiles.org/assets/sprites/basics/sprites"
     },
     {
       "id": "transport",
-      "url": "transport/transport"
+      "url": "http://localhost:8080/styles/oceania-australis/sprite/transport"
     }
   ],
   "glyphs": "https://tiles.versatiles.org/assets/glyphs/{fontstack}/{range}.pbf",
@@ -5894,7 +5894,7 @@
         "text-size": 10,
         "icon-anchor": "bottom",
         "text-anchor": "top",
-        "icon-image": "tfnsw:ferry"
+        "icon-image": "transport:tfnsw\\ferry"
       },
       "paint": {
         "icon-opacity": 1,
@@ -5962,11 +5962,11 @@
           "match",
           ["get", "network"],
           "Transport Buses",
-          "tfnsw:bus",
+          "transport:tfnsw\\bus",
           "PTV - Metropolitan Buses",
-          "ptv:bus",
+          "transport:ptv\\bus",
           "Skybus",
-          "ptv:skybus",
+          "transport:ptv\\skybus",
           ""
         ]
       },
@@ -6026,7 +6026,7 @@
         "text-size": 10,
         "icon-anchor": "bottom",
         "text-anchor": "top",
-        "icon-image": "ptv:tram"
+        "icon-image": "transport:ptv\\tram"
       },
       "paint": {
         "icon-opacity": 1,
@@ -6089,7 +6089,7 @@
         "text-size": 10,
         "icon-anchor": "bottom",
         "text-anchor": "top",
-        "icon-image": "tfnsw:metro"
+        "icon-image": "transport:tfnsw\\metro"
       },
       "paint": {
         "icon-opacity": 1,
@@ -6152,7 +6152,7 @@
         "text-size": 10,
         "icon-anchor": "bottom",
         "text-anchor": "top",
-        "icon-image": "tfnsw:tram"
+        "icon-image": "transport:tfnsw\\tram"
       },
       "paint": {
         "icon-opacity": 1,
@@ -6226,13 +6226,13 @@
           "match",
           ["get", "network"],
           "Sydney Trains",
-          "tfnsw:train",
+          "transport:tfnsw\\train",
           "NSW TrainLink",
-          "tfnsw:train",
+          "transport:tfnsw\\train",
           "PTV - Metropolitan Trains",
-          "ptv:train",
+          "transport:ptv\\train",
           "PTV - Regional Trains",
-          "ptv:train_regional",
+          "transport:ptv\\train_regional",
           ""
         ]
       },
