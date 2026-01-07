@@ -9,7 +9,7 @@
   "sources": {
     "shortbread": {
       "type": "vector",
-      "url": "https://tiles.kurisu.dev/data/oceania.json"
+      "url": "pmtiles://{local}"
     }
   },
   "sprite": [
@@ -18,12 +18,8 @@
       "url": "https://tiles.versatiles.org/assets/sprites/basics/sprites" 
     },
     {
-      "id": "tfnsw",
-      "url": "http://localhost:8000/tfnsw/tfnsw"
-    },
-    {
-      "id": "ptv",
-      "url": "http://localhost:8000/ptv/ptv"
+      "id": "transport",
+      "url": "transport/transport"
     }
   ],
   "glyphs": "https://tiles.versatiles.org/assets/glyphs/{fontstack}/{range}.pbf",
