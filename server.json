@@ -1,0 +1,12 @@
+{
+  "options": {
+    "paths": { "root": "/data", "styles": "styles", "pmtiles": "." }
+  },
+  "data": { "oceania": { "pmtiles": "oceania.pmtiles" } },
+  "styles": {
+    "oceania-australis": {
+      "style": "oceania-australis/oceania-australia-standard.json",
+      "serve_data": true
+    }
+  }
+}

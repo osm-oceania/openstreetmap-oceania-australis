@@ -1,0 +1,28 @@
+services:
+  tileserver:
+    image: maptiler/tileserver-gl:latest
+    container_name: tileserver
+    restart: unless-stopped
+    volumes:
+      - ./data:/data
+      - ./config.json:/config.json:ro
+    command: ['--config', '/config.json']
+    ports:
+      - '8676:8080'
+
+  build_tiles:
+    image: ghcr.io/onthegomap/planetiler:latest
+    container_name: build_tiles
+    restart: "no"
+    environment:
+      - JAVA_TOOL_OPTIONS=-Xmx3g
+    user: "${UID}:${GID}"
+    volumes:
+      - ./data:/data
+      - ./shortbread.yml:/shortbread.yml:ro
+    command: [
+      '/shortbread.yml',
+      '--fetch-wikidata',
+      '--osm-path=/data/australia-oceania.osm.pbf',
+      '--output=/data/oceania.pmtiles'
+    ]
