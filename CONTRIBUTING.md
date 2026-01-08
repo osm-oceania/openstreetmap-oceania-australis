@@ -8,7 +8,7 @@ Whether you're fixing a rendering bug, proposing a new feature, improving access
 
 ### Types of Contributions We Accept
 
-- **Style improvements**: Colours, typography, icons, zoom behavior
+- **Style improvements**: Colours, typography, icons, zoom behaviour
 - **Feature proposals**: New layers, POIs, symbology (use the Map Feature Proposal template)
 - **Accessibility enhancements**: Colour-blind safe palettes, contrast improvements, legibility
 - **Localisation support**: Indigenous name tags (`name:aus` and Aboriginal/Torres Strait Islander languages), regional conventions
@@ -52,34 +52,22 @@ Before you begin, ensure you have:
 
 ### Setting Up Your Development Environment
 
-1. **Fork the repository**
+1. **Clone your fork**
 
     ```bash
-    # Click "Fork" on the GitHub repository page
+    git clone https://github.com/osm-oceania/openstreetmap-oceania-australis.git
+    cd openstreetmap-oceania-australis
     ```
 
-2. **Clone your fork**
-
-    ```bash
-    git clone https://github.com/YOUR-USERNAME/openstreetmap-oceania-australis-style.git
-    cd openstreetmap-oceania-australis-style
-    ```
-
-3. **Add the upstream remote**
-
-    ```bash
-    git remote add upstream https://github.com/ORIGINAL-OWNER/openstreetmap-oceania-australis-style.git
-    ```
-
-4. **Navigate to the styles directory**
+2. **Navigate to the styles directory**
 
     ```bash
     cd src/styles
     ```
 
-5. **Preview your changes**
+3. **Preview your changes**
    - Open the style JSON file in Maputnik, or
-   - Set up a local tile server to test changes with real data
+   - Set up a local tile server to test changes with real data, we use [tileserver-gl](https://github.com/maptiler/tileserver-gl)
 
 ### Staying in Sync
 
@@ -114,9 +102,9 @@ The Australis style aims to authentically represent the cultures of Oceania. Thi
 ### Indigenous Names and Languages
 
 - **Use `name:aus` tags** for Australian English variants
-- **Support Aboriginal and Torres Strait Islander language names** in appropriate contexts
-- **Prioritize indigenous place names** where culturally appropriate
-- Ensure proper display of all `name:*` language variants
+- **Support Aboriginal and Torres Strait Islander language names** where available
+- **Prioritise indigenous place names** where culturally appropriate
+- Ensure proper display of all Indigenous language `name:*` variants
 
 ### Region-Specific Conventions
 
@@ -142,7 +130,7 @@ The Australis style uses locally relevant symbols:
 
 - **Branded icons** for common Australian chains (supermarkets, petrol stations, hardware stores)
 - **Australian emergency services** (SES, Marine Rescue, RFS)
-- **Indigenous cultural sites** (marae, rock art sites where appropriate)
+- **Indigenous cultural sites** (rock art sites, middens)
 - **Unique Australian features** (bushfire refuges, RFDS facilities)
 
 ## Reporting Issues
@@ -157,31 +145,13 @@ The Australis style uses locally relevant symbols:
 
 When reporting a bug, use the **Bug Report** template and include:
 
-- **Clear, descriptive title** summarizing the issue
+- **Clear, descriptive title** summarising the issue
 - **Location and zoom level** where the issue occurs (coordinates or place name)
 - **Screenshots or screen recordings** showing the problem
-- **Expected vs. actual behavior** description
+- **Expected vs. actual behaviour** description
 - **Browser/renderer version** and device information (Desktop/Mobile)
 - **Steps to reproduce** the issue
 - **Style version or commit hash** you're using
-
-**Example:**
-
-Title: Railway labels overlap with road names at zoom level 14 in Sydney CBD
-
-Location: Sydney CBD (151.2093°E, 33.8688°S)
-Zoom: 14
-Renderer: MapLibre GL JS v4.0.0
-Browser: Chrome 120
-
-Expected: Railway and road labels should not overlap
-Actual: Light rail labels render on top of major road names
-
-Steps to reproduce:
-
-1. Navigate to Sydney CBD
-2. Set zoom to 14
-3. Observe George Street and light rail labels
 
 ### Feature Requests
 
@@ -194,7 +164,7 @@ The template covers:
 - **Mode/bucket** - Which style variant(s) does this belong to?
 - **Data + tagging** - Required OSM tags and data availability in AU/NZ/Oceania
 - **Rendering rules** - Geometry, zoom thresholds, layer ordering
-- **Visual design** - Colors, patterns, icons, references
+- **Visual design** - Colours, patterns, icons, references
 - **Accessibility checks** - Colour-blind safety, contrast, clutter
 - **Cultural context** - Localisation requirements, sensitivity concerns
 - **Acceptance criteria** - How do we know when it's done?
@@ -228,19 +198,19 @@ Follow the existing pattern in the codebase:
 - `{context}-{feature}-{variant}:{stage}`
 - Examples: `bridge-street-motorway:outline`, `poi-amenity`, `label-place-city`
 
-### Color and Typography
+### Colour and Typography
 
-- **Test all colors** for accessibility (use tools like WebAIM Contrast Checker)
-- **Use Australian landscape-inspired colors** where appropriate
+- **Test all colours** for accessibility (use tools like WebAIM Contrast Checker)
+- **Use Australian landscape-inspired colours** where appropriate
 - **Maintain consistent font usage** (Noto Sans family as specified)
-- **Document color choices** in comments for key design decisions
+- **Document colour choices** in comments for key design decisions
 
 ### Icon Requirements
 
 - **Format**: SVG
-- **Style**: Should match the VersaTiles basics sprite aesthetic
+- **Style**: TBD
 - **Naming**: Follow existing sprite naming conventions
-- **Size**: Provide multiple sizes if needed (@2x variants)
+- **Size**: Provide multiple sizes, 2x variants are mandatory to display properly on high retina displays. Minimum dimension is 24px
 - **Accessibility**: Ensure sufficient contrast and clarity at target zoom levels
 
 ## Pull Request Process
@@ -297,8 +267,12 @@ Include in your PR description:
 
 If you have questions about contributing, need clarification, or want to discuss ideas:
 
-- **GitHub Discussions**: [Link to discussions page] - Best for general questions and feature discussions
+- **GitHub Discussions**: <https://github.com/osm-oceania/openstreetmap-oceania-australis/discussions> - Best for general questions and feature discussions
 - **OpenStreetMap Community**: Connect with the Oceania OSM community
+
+  - [OSM Community Forum Oceania]
+  - [OSM Oceania Talk Mailing List]
+  - [OSM Oceania Discord Channel]
 - **Issue Comments**: Ask questions directly on relevant issues
 
 ### Documentation Resources
@@ -320,19 +294,19 @@ A: Check the Shortbread documentation for supported tags. For Australian-specifi
 **Q: Can I propose a completely new style variant?**
 A: Yes! Use the Map Feature Proposal template and explain the use case. Major style variants should align with one of the existing buckets or propose a compelling new category.
 
-<!--**Q: How do I handle indigenous place names properly?**
-A: Consult with indigenous communities when possible, use appropriate `name:*` tags, and prioritize respectful representation. When in doubt, ask in discussions.-->
+**Q: How do I handle Indigenous place names properly?**
+A: Please check out the Australia's First Peoples page on the OSM Wiki for more information <https://wiki.openstreetmap.org/wiki/Australian_Tagging_Guidelines/Australia%27s_First_Peoples>
 
 **Q: Who maintains the Australis style?**
 A: The Australis style is a community project. Check the README for current maintainer contacts.
 
-<!--## Recognition
+## Recognition
 
-Contributors are credited in the project. By contributing, you agree that your contributions will be released under the CC0 1.0 Universal (Public Domain Dedication) license.-->
+Contributors should make an effort to ensure commit history is maintained. In doing so, contributors are then credited in the project. By contributing, you agree that your contributions will be released under the CC0 1.0 Universal (Public Domain Dedication) license.
 
 ## Code of Conduct
 
-We are committed to providing a welcoming and inclusive environment. Treat all contributors with respect. Harassment, discrimination, or inappropriate behavior will not be tolerated.
+We are committed to providing a welcoming and inclusive environment. Treat all contributors with respect. Harassment, discrimination, or inappropriate behaviour will not be tolerated.
 
 ---
 
@@ -341,6 +315,6 @@ We are committed to providing a welcoming and inclusive environment. Treat all c
 - [MapLibre GL JS Documentation](https://maplibre.org/maplibre-gl-js/docs/)
 - [OpenStreetMap Australian Tagging Guidelines](https://wiki.openstreetmap.org/wiki/Australian_Tagging_Guidelines)
 - [Oceania OSM Community Forum](https://community.openstreetmap.org/c/communities/oceania/)
-- [Oceania Discord](https://discord.com/channels/413070382636072960/471231032645910529)
+- [Oceania Channel on OSM Discord](https://discord.gg/openstreetmap)
 
 Thank you for helping create better, more culturally authentic maps for Oceania! 🗺️🦘
