@@ -5,6 +5,7 @@
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
     "maputnik:renderer": "mlgljs"
   },
+  "projection": {"type": "globe"},
   "sources": {
     "shortbread": {
       "type": "vector",
@@ -15,6 +16,10 @@
     {
       "id": "basics",
       "url": "https://tiles.versatiles.org/assets/sprites/basics/sprites"
+    },
+    {
+      "id": "transport",
+      "url": "https://tiles.kurisu.dev/styles/oceania-australis/sprites/transport"
     }
   ],
   "glyphs": "https://tiles.versatiles.org/assets/glyphs/{fontstack}/{range}.pbf",
@@ -5844,6 +5849,63 @@
       }
     },
     {
+      "id": "symbol-transit-ferry",
+      "type": "symbol",
+      "source": "shortbread",
+      "source-layer": "public_transport",
+      "minzoom": 16,
+      "filter": ["all", ["==", "kind", "ferry_terminal"]],
+      "layout": {
+        "text-field": ["get", "name"],
+        "icon-size": {"stops": [[16, 0.5], [18, 1]]},
+        "symbol-placement": "point",
+        "icon-keep-upright": true,
+        "text-font": ["noto_sans_regular"],
+        "text-size": 10,
+        "icon-anchor": "bottom",
+        "text-anchor": "top"
+      },
+      "paint": {
+        "icon-opacity": 0.7,
+        "icon-color": "rgb(102,98,106)",
+        "text-color": "rgb(102,98,106)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 2,
+        "text-halo-blur": 1
+      }
+    },
+    {
+      "id": "symbol-transit-ferry-official",
+      "type": "symbol",
+      "source": "shortbread",
+      "source-layer": "public_transport",
+      "minzoom": 16,
+      "filter": [
+        "all",
+        ["==", "kind", "ferry_terminal"],
+        ["in", "network", "Sydney Ferries"]
+      ],
+      "layout": {
+        "text-field": ["get", "name"],
+        "icon-size": {"stops": [[16, 0.5], [18, 1]]},
+        "symbol-placement": "point",
+        "icon-keep-upright": true,
+        "text-font": ["noto_sans_regular"],
+        "text-size": 10,
+        "icon-anchor": "bottom",
+        "text-anchor": "top",
+        "icon-image": "transport:tfnsw\\ferry"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "icon-color": "rgb(102,98,106)",
+        "text-color": "rgb(102,98,106)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 2,
+        "text-halo-blur": 1
+      }
+    },
+    {
       "id": "symbol-transit-bus",
       "type": "symbol",
       "source": "shortbread",
@@ -5871,6 +5933,53 @@
       }
     },
     {
+      "id": "symbol-transit-bus-official",
+      "type": "symbol",
+      "source": "shortbread",
+      "source-layer": "public_transport",
+      "minzoom": 16,
+      "filter": [
+        "all",
+        ["==", "kind", "bus_stop"],
+        [
+          "in",
+          "network",
+          "Transport Buses",
+          "Skybus",
+          "PTV - Metropolitan Buses"
+        ]
+      ],
+      "layout": {
+        "text-field": ["get", "name"],
+        "icon-size": {"stops": [[16, 0.5], [18, 1]]},
+        "symbol-placement": "point",
+        "icon-keep-upright": true,
+        "text-font": ["noto_sans_regular"],
+        "text-size": 10,
+        "icon-anchor": "bottom",
+        "text-anchor": "top",
+        "icon-image": [
+          "match",
+          ["get", "network"],
+          "Transport Buses",
+          "transport:tfnsw\\bus",
+          "PTV - Metropolitan Buses",
+          "transport:ptv\\bus",
+          "Skybus",
+          "transport:ptv\\skybus",
+          ""
+        ]
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "icon-color": "rgb(102,98,106)",
+        "text-color": "rgb(102,98,106)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 2,
+        "text-halo-blur": 1
+      }
+    },
+    {
       "id": "symbol-transit-tram",
       "type": "symbol",
       "source": "shortbread",
@@ -5890,6 +5999,37 @@
       },
       "paint": {
         "icon-opacity": 0.7,
+        "icon-color": "rgb(102,98,106)",
+        "text-color": "rgb(102,98,106)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 2,
+        "text-halo-blur": 1
+      }
+    },
+    {
+      "id": "symbol-transit-tram-official",
+      "type": "symbol",
+      "source": "shortbread",
+      "source-layer": "public_transport",
+      "minzoom": 15,
+      "filter": [
+        "all",
+        ["==", "kind", "tram_stop"],
+        ["in", "network", "PTV - Metropolitan Trams"]
+      ],
+      "layout": {
+        "text-field": ["get", "name"],
+        "icon-size": {"stops": [[15, 0.5], [17, 1]]},
+        "symbol-placement": "point",
+        "icon-keep-upright": true,
+        "text-font": ["noto_sans_regular"],
+        "text-size": 10,
+        "icon-anchor": "bottom",
+        "text-anchor": "top",
+        "icon-image": "transport:ptv\\tram"
+      },
+      "paint": {
+        "icon-opacity": 1,
         "icon-color": "rgb(102,98,106)",
         "text-color": "rgb(102,98,106)",
         "text-halo-color": "rgba(255,255,255,0.8)",
@@ -5929,6 +6069,38 @@
       }
     },
     {
+      "id": "symbol-transit-subway-official",
+      "type": "symbol",
+      "source": "shortbread",
+      "source-layer": "public_transport",
+      "minzoom": 14,
+      "filter": [
+        "all",
+        ["in", "kind", "station", "halt"],
+        ["==", "station", "subway"],
+        ["in", "network", "Sydney Metro"]
+      ],
+      "layout": {
+        "text-field": ["get", "name"],
+        "icon-size": {"stops": [[13, 0.5], [15, 1]]},
+        "symbol-placement": "point",
+        "icon-keep-upright": true,
+        "text-font": ["noto_sans_regular"],
+        "text-size": 10,
+        "icon-anchor": "bottom",
+        "text-anchor": "top",
+        "icon-image": "transport:tfnsw\\metro"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "icon-color": "rgb(102,98,106)",
+        "text-color": "rgb(102,98,106)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 2,
+        "text-halo-blur": 1
+      }
+    },
+    {
       "id": "symbol-transit-lightrail",
       "type": "symbol",
       "source": "shortbread",
@@ -5960,6 +6132,38 @@
       }
     },
     {
+      "id": "symbol-transit-lightrail-official",
+      "type": "symbol",
+      "source": "shortbread",
+      "source-layer": "public_transport",
+      "minzoom": 14,
+      "filter": [
+        "all",
+        ["in", "kind", "station", "halt"],
+        ["==", "station", "light_rail"],
+        ["==", "network", "Sydney Light Rail"]
+      ],
+      "layout": {
+        "text-field": ["get", "name"],
+        "icon-size": {"stops": [[14, 0.5], [16, 1]]},
+        "symbol-placement": "point",
+        "icon-keep-upright": true,
+        "text-font": ["noto_sans_regular"],
+        "text-size": 10,
+        "icon-anchor": "bottom",
+        "text-anchor": "top",
+        "icon-image": "transport:tfnsw\\tram"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "icon-color": "rgb(102,98,106)",
+        "text-color": "rgb(102,98,106)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 2,
+        "text-halo-blur": 1
+      }
+    },
+    {
       "id": "symbol-transit-station",
       "type": "symbol",
       "source": "shortbread",
@@ -5983,6 +6187,57 @@
       },
       "paint": {
         "icon-opacity": 0.7,
+        "icon-color": "rgb(102,98,106)",
+        "text-color": "rgb(102,98,106)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 2,
+        "text-halo-blur": 1
+      }
+    },
+    {
+      "id": "symbol-transit-station-official",
+      "type": "symbol",
+      "source": "shortbread",
+      "source-layer": "public_transport",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        ["in", "kind", "station", "halt"],
+        ["!in", "station", "light_rail", "subway"],
+        [
+          "in",
+          "network",
+          "Sydney Trains",
+          "NSW TrainLink",
+          "PTV - Metropolitan Trains",
+          "PTV - Regional Trains"
+        ]
+      ],
+      "layout": {
+        "text-field": ["get", "name"],
+        "icon-size": {"stops": [[13, 0.5], [15, 1]]},
+        "symbol-placement": "point",
+        "icon-keep-upright": true,
+        "text-font": ["noto_sans_regular"],
+        "text-size": 10,
+        "icon-anchor": "bottom",
+        "text-anchor": "top",
+        "icon-image": [
+          "match",
+          ["get", "network"],
+          "Sydney Trains",
+          "transport:tfnsw\\train",
+          "NSW TrainLink",
+          "transport:tfnsw\\train",
+          "PTV - Metropolitan Trains",
+          "transport:ptv\\train",
+          "PTV - Regional Trains",
+          "transport:ptv\\train_regional",
+          ""
+        ]
+      },
+      "paint": {
+        "icon-opacity": 1,
         "icon-color": "rgb(102,98,106)",
         "text-color": "rgb(102,98,106)",
         "text-halo-color": "rgba(255,255,255,0.8)",
