@@ -267,13 +267,9 @@ Include in your PR description:
 
 If you have questions about contributing, need clarification, or want to discuss ideas:
 
-- **GitHub Discussions**: <https://github.com/osm-oceania/openstreetmap-oceania-australis/discussions> - Best for general questions and feature discussions
-- **OpenStreetMap Community**: Connect with the Oceania OSM community
-
-  - [OSM Community Forum Oceania]
-  - [OSM Oceania Talk Mailing List]
-  - [OSM Oceania Discord Channel]
-- **Issue Comments**: Ask questions directly on relevant issues
+- **GitHub Discussions**: [OSM Oceania Australis Discussions](https://github.com/osm-oceania/openstreetmap-oceania-australis/discussions) - Best for general questions and feature discussions
+- **OpenStreetMap Community**: [Connect with the Oceania OSM community](https://wiki.openstreetmap.org/wiki/Australian_Mapping_Community#Social_Channels)
+- **Issue Comments**: [Ask questions directly on relevant issues](https://github.com/osm-oceania/openstreetmap-oceania-australis/issues)
 
 ### Documentation Resources
 
