@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run tile server",
+            "type": "shell",
+            "command": "tileserver-gl",
+            "args": [
+                "-c",
+                "src/tileserver-config.json",
+                "--port",
+                "8080"
+            ],
+            "options": {
+                "shell": {
+                    "executable": "powershell",
+                    "args": [
+                        "-c"
+                    ]
+                }
+            },
+            "isBackground": true,
+            "problemMatcher": [],
+            "runOptions": {
+                "runOn": "folderOpen",
+                "instanceLimit": 1
+            }
+        },
+        {
+            "label": "Run data server",
+            "type": "shell",
+            "command": "npx",
+            "args": [
+                "http-server",
+                "src/icons",
+                "--cors",
+                "-p",
+                "8000"
+            ],
+            "isBackground": true,
+            "problemMatcher": [],
+            "runOptions": {
+                "runOn": "folderOpen",
+                "instanceLimit": 1
+            }
+        }
+    ]
+}
