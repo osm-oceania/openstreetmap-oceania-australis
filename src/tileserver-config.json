@@ -1,0 +1,38 @@
+{
+    "options": {
+        "paths": {
+            "mbtiles": "data",
+            "pmtiles": "data",
+            "root": "",
+            "sprites": "icons",
+            "styles": "styles"
+        },
+        "allowInlineMarkerImages": true,
+        "allowRemoteMarkerIcons": true,
+        "domains": [
+            "localhost:8080",
+            "127.0.0.1:8080"
+        ],
+        "formatQuality": {
+            "jpeg": 80,
+            "webp": 90
+        },
+        "indexCacheMaxAge": 3600,
+        "maxZoom": 22,
+        "sourceCacheMaxAge": 31536000,
+        "staticAttributionLink": "https://www.openstreetmap.org/copyright",
+        "staticAttributionText": "© OpenStreetMap contributors",
+        "tileCacheMaxAge": 31536000,
+        "tileSize": 512
+    },
+    "styles": {
+        "remote": {
+            "style": "https://raw.githubusercontent.com/osm-oceania/openstreetmap-oceania-australis/refs/heads/main/styles/oceania-australia-standard.json"
+        }
+    },
+    "data": {
+        "local": {
+            "pmtiles": "australia-shortbread.pmtiles"
+        }
+    }
+}
