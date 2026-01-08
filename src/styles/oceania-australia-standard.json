@@ -9,7 +9,7 @@
   "sources": {
     "shortbread": {
       "type": "vector",
-      "url": "http://localhost:8080/data/local.json"
+      "url": "https://tiles.kurisu.dev/data/oceania.json"
     }
   },
   "sprite": [
@@ -19,7 +19,7 @@
     },
     {
       "id": "transport",
-      "url": "http://localhost:8000/transport/transport"
+      "url": "https://tiles.kurisu.dev/styles/oceania-australis/sprites/transport"
     }
   ],
   "glyphs": "https://tiles.versatiles.org/assets/glyphs/{fontstack}/{range}.pbf",
