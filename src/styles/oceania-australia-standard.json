@@ -19,7 +19,7 @@
     },
     {
       "id": "transport",
-      "url": "http://localhost:8080/styles/oceania-australis/sprite/transport"
+      "url": "http://localhost:8000/transport/transport"
     }
   ],
   "glyphs": "https://tiles.versatiles.org/assets/glyphs/{fontstack}/{range}.pbf",
