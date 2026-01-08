@@ -1,5 +1,4 @@
 *.code-workspace
-.vscode/
 node_modules
 *.jar
 *.pbf
