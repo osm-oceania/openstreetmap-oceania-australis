@@ -622,15 +622,19 @@ layers:
           overrides:
             5:
               highway: motorway%
+              construction: motorway%
             6:
               highway: trunk%
+              construction: trunk%
             8:
               highway: primary%
+              construction: primary%
               __all__:
                 railway: [rail, narrow_gauge]
                 service: __any__
             9:
               highway: secondary%
+              construction: secondary%
             10:
               __all__:
                 railway: [rail, narrow_gauge]
@@ -641,11 +645,18 @@ layers:
                 - monorail
                 - subway
                 - tram
-              highway: tertiary
+              highway: tertiary%
+              construction: tertiary%
             11:
               aeroway: runway
+              construction: runway
             12:
               highway:
+                - bus_guideway
+                - busway
+                - residential
+                - unclassified
+              construction:
                 - bus_guideway
                 - busway
                 - residential
@@ -687,6 +698,38 @@ layers:
             - funicular
             - subway
             - monorail
+          construction: # TODO smarter handling of construction to include construction:*=* tag prefix
+            - motorway
+            - motorway_link
+            - trunk
+            - trunk_link
+            - primary
+            - primary_link
+            - secondary
+            - secondary_link
+            - tertiary
+            - tertiary_link
+            - unclassified
+            - residential
+            - busway
+            - bus_guideway
+            - living_street
+            - service
+            - pedestrian
+            - track
+            - footway
+            - steps
+            - path
+            - cycleway
+            - runway
+            - taxiway
+            - rail
+            - narrow_gauge
+            - tram
+            - light_rail
+            - funicular
+            - subway
+            - monorail
         attributes:
           - key: kind
             value: '${ match_value.replace("_link", "") }'
@@ -700,6 +743,17 @@ layers:
                 - primary_link
                 - secondary_link
                 - tertiary_link
+              construction:
+                - motorway_link
+                - trunk_link
+                - primary_link
+                - secondary_link
+                - tertiary_link
+            else: false
+          - key: construction
+            value: true
+            include_when:
+              construction: __any__
             else: false
           - key: rail
             min_zoom: 5
