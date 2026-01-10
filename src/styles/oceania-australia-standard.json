@@ -15,12 +15,13 @@
   "sprite": [
     {
       "id": "basics",
-      "url": "https://tiles.versatiles.org/assets/sprites/basics/sprites"
+      "url": "https://tiles.kurisu.dev/styles/oceania-australis/sprite/basics"
     },
     {
       "id": "transport",
-      "url": "https://tiles.kurisu.dev/styles/oceania-australis/sprites/transport"
-    }
+      "url": "https://tiles.kurisu.dev/styles/oceania-australis/sprite/transport"
+    },
+    {"id": "shields", "url": "http://localhost:8000/shields-signs/signs"}
   ],
   "glyphs": "https://tiles.versatiles.org/assets/glyphs/{fontstack}/{range}.pbf",
   "layers": [
@@ -7423,7 +7424,7 @@
       "type": "symbol",
       "source": "shortbread",
       "source-layer": "street_labels",
-      "minzoom": 14,
+      "minzoom": 10,
       "filter": ["==", "kind", "motorway"],
       "layout": {
         "text-field": "{ref}",
@@ -7437,13 +7438,14 @@
             [20, 16]
           ]
         },
-        "text-rotation-alignment": "viewport"
+        "text-rotation-alignment": "viewport",
+        "icon-image": "shields:AU"
       },
       "paint": {
         "icon-color": "rgb(255,255,255)",
-        "text-color": "rgb(255,255,255)",
+        "text-color": "rgba(255, 228, 60, 1)",
         "text-halo-color": "rgb(255,204,136)",
-        "text-halo-width": 0.1,
+        "text-halo-width": 0,
         "text-halo-blur": 1
       }
     },
