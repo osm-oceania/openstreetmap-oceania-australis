@@ -16,11 +16,9 @@
     {
       "id": "basics",
       "url": "https://tiles.kurisu.dev/styles/oceania-australis/sprite/basics"
-      "url": "https://tiles.kurisu.dev/styles/oceania-australis/sprite/basics"
     },
     {
       "id": "transport",
-      "url": "https://tiles.kurisu.dev/styles/oceania-australis/sprite/transport"
       "url": "https://tiles.kurisu.dev/styles/oceania-australis/sprite/transport"
     }
   ],
