@@ -18,4 +18,4 @@ This document acknowledges the sources and foundations that helped this project.
 
 ---
 
-*Last updated: January 2026*
+_Last updated: January 2026_

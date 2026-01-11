@@ -1,3 +1,26 @@
 {
-  "editor.formatOnSave": true
+  "cSpell.words": [
+    "beergarden",
+    "biergarten",
+    "doityourself",
+    "drycleaning",
+    "housenumber",
+    "huntingstand",
+    "icerink",
+    "maputnik",
+    "nursinghome",
+    "oneway",
+    "openstreetmap",
+    "oxfmt",
+    "planetiler",
+    "pmtiles",
+    "Skybus",
+    "statecapital",
+    "tfnsw",
+    "tileserver",
+    "waterpark"
+  ],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "[json]": { "editor.defaultFormatter": "oxc.oxc-vscode" }
 }
