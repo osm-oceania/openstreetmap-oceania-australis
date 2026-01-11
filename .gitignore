@@ -1,2 +1,7 @@
+.DS_Store
 *.code-workspace
-.vscode/
+node_modules
+data/
+build/
+*.jar
+*.pbf
