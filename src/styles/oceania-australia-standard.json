@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "name": "oceania-australis",
+  "name": "oceania-australis-standard",
   "metadata": {
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
     "maputnik:renderer": "mlgljs"
@@ -15,11 +15,11 @@
   "sprite": [
     {
       "id": "basics",
-      "url": "https://tiles.versatiles.org/assets/sprites/basics/sprites"
+      "url": "https://tiles.kurisu.dev/styles/oceania-australis/sprite/basics"
     },
     {
       "id": "transport",
-      "url": "https://tiles.kurisu.dev/styles/oceania-australis/sprites/transport"
+      "url": "https://tiles.kurisu.dev/styles/oceania-australis/sprite/transport"
     }
   ],
   "glyphs": "https://tiles.versatiles.org/assets/glyphs/{fontstack}/{range}.pbf",
@@ -118,25 +118,6 @@
           "stops": [
             [10, 0],
             [11, 1]
-          ]
-        }
-      }
-    },
-    {
-      "id": "site-construction",
-      "type": "fill",
-      "source": "shortbread",
-      "source-layer": "sites",
-      "filter": ["in", "kind", "construction"],
-      "layout": { "visibility": "visible" },
-      "paint": {
-        "fill-color": "rgba(183, 177, 171, 0.9)",
-        "fill-opacity": {
-          "stops": [
-            [11, 0],
-            [12, 0.7],
-            [14, 0.7],
-            [15, 1]
           ]
         }
       }
@@ -591,6 +572,21 @@
       "source-layer": "sites",
       "filter": ["in", "kind", "bicycle_parking"],
       "paint": { "fill-color": "rgb(235,232,230)" }
+    },
+    {
+      "id": "site-construction",
+      "type": "fill",
+      "source": "shortbread",
+      "source-layer": "sites",
+      "filter": ["in", "kind", "construction"],
+      "layout": { "visibility": "visible" },
+      "paint": {
+        "fill-color": "rgba(203, 191, 139, 0.9)",
+        "fill-opacity": 0.2,
+        "fill-antialias": false,
+        "fill-outline-color": "rgba(168, 168, 65, 1)",
+        "fill-pattern": "basics:pattern-hatched_thin"
+      }
     },
     {
       "id": "building:outline",
@@ -2407,7 +2403,13 @@
             [20, 22]
           ]
         },
-        "line-color": "rgba(216, 102, 109, 1)"
+        "line-color": "rgba(216, 102, 109, 1)",
+        "line-opacity": [
+          "case",
+          ["get", "construction"],
+          ["literal", 0.5],
+          ["literal", 1]
+        ]
       }
     },
     {
@@ -2433,7 +2435,13 @@
             [20, 22]
           ]
         },
-        "line-color": "rgba(245, 106, 49, 1)"
+        "line-color": "rgba(245, 106, 49, 1)",
+        "line-opacity": [
+          "case",
+          ["get", "construction"],
+          ["literal", 0.5],
+          ["literal", 1]
+        ]
       }
     },
     {
@@ -2504,7 +2512,13 @@
             [20, 22]
           ]
         },
-        "line-color": "rgb(226,212,230)"
+        "line-color": "rgb(226,212,230)",
+        "line-opacity": [
+          "case",
+          ["get", "construction"],
+          ["literal", 0.5],
+          ["literal", 1]
+        ]
       }
     },
     {
@@ -2530,7 +2544,13 @@
             [20, 22]
           ]
         },
-        "line-color": "rgba(40, 99, 230, 1)"
+        "line-color": "rgba(40, 99, 230, 1)",
+        "line-opacity": [
+          "case",
+          ["get", "construction"],
+          ["literal", 0.5],
+          ["literal", 1]
+        ]
       }
     },
     {
@@ -2780,7 +2800,13 @@
             [18, 14],
             [20, 40]
           ]
-        }
+        },
+        "line-opacity": [
+          "case",
+          ["get", "construction"],
+          ["literal", 0.5],
+          ["literal", 1]
+        ]
       }
     },
     {
@@ -2807,7 +2833,13 @@
             [18, 14],
             [20, 40]
           ]
-        }
+        },
+        "line-opacity": [
+          "case",
+          ["get", "construction"],
+          ["literal", 0.5],
+          ["literal", 1]
+        ]
       }
     },
     {
@@ -2834,7 +2866,13 @@
             [18, 14],
             [20, 40]
           ]
-        }
+        },
+        "line-opacity": [
+          "case",
+          ["get", "construction"],
+          ["literal", 0.5],
+          ["literal", 1]
+        ]
       }
     },
     {
@@ -2842,7 +2880,7 @@
       "type": "line",
       "source": "shortbread",
       "source-layer": "streets",
-      "minzoom": 12,
+      "minzoom": 11,
       "filter": [
         "all",
         ["!=", "bridge", true],
@@ -2861,7 +2899,13 @@
             [18, 14],
             [20, 40]
           ]
-        }
+        },
+        "line-opacity": [
+          "case",
+          ["get", "construction"],
+          ["literal", 0.5],
+          ["literal", 1]
+        ]
       }
     },
     {
@@ -2956,7 +3000,13 @@
             [19, 74],
             [20, 144]
           ]
-        }
+        },
+        "line-opacity": [
+          "case",
+          ["get", "construction"],
+          ["literal", 0.5],
+          ["literal", 1]
+        ]
       }
     },
     {
@@ -2985,7 +3035,13 @@
             [19, 74],
             [20, 144]
           ]
-        }
+        },
+        "line-opacity": [
+          "case",
+          ["get", "construction"],
+          ["literal", 0.5],
+          ["literal", 1]
+        ]
       }
     },
     {
@@ -3014,7 +3070,13 @@
             [19, 84],
             [20, 168]
           ]
-        }
+        },
+        "line-opacity": [
+          "case",
+          ["get", "construction"],
+          ["literal", 0.5],
+          ["literal", 1]
+        ]
       }
     },
     {
@@ -3046,7 +3108,13 @@
         },
         "line-color": "rgba(253, 234, 235, 1)",
         "line-offset": 0,
-        "line-gap-width": 0
+        "line-gap-width": 0,
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3072,7 +3140,13 @@
             [20, 20]
           ]
         },
-        "line-color": "rgba(255, 221, 221, 1)"
+        "line-color": "rgba(255, 221, 221, 1)",
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3098,7 +3172,13 @@
             [20, 20]
           ]
         },
-        "line-color": "rgb(251,235,255)"
+        "line-color": "rgb(251,235,255)",
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3124,7 +3204,13 @@
             [20, 20]
           ]
         },
-        "line-color": "rgba(208, 208, 253, 1)"
+        "line-color": "rgba(208, 208, 253, 1)",
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3155,7 +3241,13 @@
             [13, 0],
             [14, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3188,7 +3280,13 @@
             [13, 0],
             [14, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3224,7 +3322,13 @@
             [14, 0],
             [15, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3256,7 +3360,13 @@
             [12, 0],
             [13, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3288,7 +3398,13 @@
             [12, 0],
             [13, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3320,7 +3436,13 @@
             [12, 0],
             [13, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3336,7 +3458,15 @@
         ["!=", "tunnel", true]
       ],
       "layout": { "line-join": "round", "line-cap": "round" },
-      "paint": { "line-color": "rgb(255,255,255)" }
+      "paint": {
+        "line-color": "rgb(255,255,255)",
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
+      }
     },
     {
       "id": "street-pedestrian-bicycle",
@@ -3368,7 +3498,13 @@
             [12, 0],
             [13, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3384,7 +3520,15 @@
         ["!=", "tunnel", true]
       ],
       "layout": { "line-join": "round", "line-cap": "round" },
-      "paint": { "line-color": "rgb(255,255,255)" }
+      "paint": {
+        "line-color": "rgb(255,255,255)",
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
+      }
     },
     {
       "id": "street-livingstreet-bicycle",
@@ -3416,7 +3560,13 @@
             [12, 0],
             [13, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3449,7 +3599,13 @@
             [12, 0],
             [13, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3482,7 +3638,13 @@
             [12, 0],
             [13, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3515,7 +3677,13 @@
             [12, 0],
             [13, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3542,7 +3710,13 @@
             [18, 12],
             [20, 38]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3569,7 +3743,13 @@
             [18, 12],
             [20, 38]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3596,7 +3776,13 @@
             [18, 12],
             [20, 38]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3604,7 +3790,7 @@
       "type": "line",
       "source": "shortbread",
       "source-layer": "streets",
-      "minzoom": 12,
+      "minzoom": 10,
       "filter": [
         "all",
         ["!=", "bridge", true],
@@ -3612,7 +3798,11 @@
         ["in", "kind", "motorway"],
         ["==", "link", true]
       ],
-      "layout": { "line-join": "round", "line-cap": "round" },
+      "layout": {
+        "line-join": "round",
+        "line-cap": "round",
+        "visibility": "visible"
+      },
       "paint": {
         "line-color": "rgba(255, 145, 136, 1)",
         "line-width": {
@@ -3623,7 +3813,13 @@
             [18, 12],
             [20, 38]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3656,7 +3852,13 @@
             [10, 0],
             [11, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3689,7 +3891,13 @@
             [11, 0],
             [12, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3724,7 +3932,13 @@
             [8, 0],
             [9, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3759,7 +3973,13 @@
             [7, 0],
             [8, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -3794,7 +4014,13 @@
             [5, 0],
             [6, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -5532,7 +5758,13 @@
             [20, 20]
           ]
         },
-        "line-color": "rgba(251, 235, 235, 1)"
+        "line-color": "rgba(251, 235, 235, 1)",
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -5553,7 +5785,13 @@
             [20, 20]
           ]
         },
-        "line-color": "rgb(251,235,255)"
+        "line-color": "rgb(251,235,255)",
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -5574,7 +5812,13 @@
             [20, 20]
           ]
         },
-        "line-color": "rgb(251,235,255)"
+        "line-color": "rgb(251,235,255)",
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -5595,7 +5839,13 @@
             [20, 20]
           ]
         },
-        "line-color": "rgb(239,249,255)"
+        "line-color": "rgb(239,249,255)",
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -5621,7 +5871,13 @@
             [14, 0],
             [15, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -5648,7 +5904,13 @@
             [12, 0],
             [13, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -5674,7 +5936,13 @@
             [15, 0],
             [16, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -5705,7 +5973,13 @@
             [12, 0],
             [13, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -5732,7 +6006,13 @@
             [12, 0],
             [13, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -5759,7 +6039,13 @@
             [12, 0],
             [13, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -5774,7 +6060,15 @@
         ["==", "bridge", true]
       ],
       "layout": { "line-join": "round", "line-cap": "butt" },
-      "paint": { "line-color": "rgb(255,255,255)" }
+      "paint": {
+        "line-color": "rgb(255,255,255)",
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
+      }
     },
     {
       "id": "bridge-street-pedestrian-bicycle",
@@ -5805,7 +6099,13 @@
             [12, 0],
             [13, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -5820,7 +6120,15 @@
         ["==", "bridge", true]
       ],
       "layout": { "line-join": "round", "line-cap": "butt" },
-      "paint": { "line-color": "rgb(255,255,255)" }
+      "paint": {
+        "line-color": "rgb(255,255,255)",
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
+      }
     },
     {
       "id": "bridge-street-livingstreet-bicycle",
@@ -5851,7 +6159,13 @@
             [12, 0],
             [13, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -5883,7 +6197,13 @@
             [12, 0],
             [13, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -5915,7 +6235,13 @@
             [12, 0],
             [13, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -5947,7 +6273,13 @@
             [12, 0],
             [13, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -5973,7 +6305,13 @@
             [18, 12],
             [20, 38]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -5999,7 +6337,13 @@
             [18, 12],
             [20, 38]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -6025,7 +6369,13 @@
             [18, 12],
             [20, 38]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -6051,7 +6401,13 @@
             [18, 12],
             [20, 38]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -6083,7 +6439,13 @@
             [12, 0],
             [13, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -6115,7 +6477,13 @@
             [11, 0],
             [12, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -6149,7 +6517,13 @@
             [8, 0],
             [9, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -6183,7 +6557,13 @@
             [7, 0],
             [8, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -6199,7 +6579,12 @@
       ],
       "layout": { "line-join": "round", "line-cap": "butt" },
       "paint": {
-        "line-color": "rgba(255, 187, 178, 1)",
+        "line-color": {
+          "stops": [
+            [11, "rgba(255, 145, 136, 1)"],
+            [12, "rgba(255, 187, 178, 1)"]
+          ]
+        },
         "line-width": {
           "stops": [
             [5, 0],
@@ -6217,7 +6602,13 @@
             [5, 0],
             [6, 1]
           ]
-        }
+        },
+        "line-dasharray": [
+          "case",
+          ["get", "construction"],
+          ["literal", [2, 2]],
+          ["literal", [1]]
+        ]
       }
     },
     {
@@ -8370,7 +8761,7 @@
       "type": "symbol",
       "source": "shortbread",
       "source-layer": "public_transport",
-      "minzoom": 14,
+      "minzoom": 13,
       "filter": [
         "all",
         ["in", "kind", "station", "halt"],
