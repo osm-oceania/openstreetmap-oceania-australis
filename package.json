@@ -1,0 +1,18 @@
+{
+  "name": "openstreetmap-oceania-australis",
+  "version": "0.0.1",
+  "description": "An OpenStreetMap style for Australia and beyond.",
+  "license": "CC0-1.0",
+  "scripts": {
+    "build:tiles:remote": "java -Xmx3g -jar planetiler.jar ./src/shortbread.yml --fetch-wikidata --download --region=australia-oceania --output=./build/oceania.pmtiles",
+    "build:tiles": "java -Xmx3g -jar planetiler.jar ./src/shortbread.yml --fetch-wikidata --osm-path=./data/australia-oceania.osm.pbf --output=./build/oceania.pmtiles",
+    "serve": "./node_modules/.bin/tileserver-gl --config ./server.json",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "oxfmt": "^0.23.0",
+    "tileserver-gl": "^5.5.0"
+  }
+}

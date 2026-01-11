@@ -54,16 +54,16 @@ Before you begin, ensure you have:
 
 1. **Clone your fork**
 
-    ```bash
-    git clone https://github.com/osm-oceania/openstreetmap-oceania-australis.git
-    cd openstreetmap-oceania-australis
-    ```
+   ```bash
+   git clone https://github.com/osm-oceania/openstreetmap-oceania-australis.git
+   cd openstreetmap-oceania-australis
+   ```
 
 2. **Navigate to the styles directory**
 
-    ```bash
-    cd src/styles
-    ```
+   ```bash
+   cd src/styles
+   ```
 
 3. **Preview your changes**
    - Open the style JSON file in Maputnik, or

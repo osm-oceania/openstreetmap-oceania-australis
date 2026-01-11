@@ -14,6 +14,7 @@ This guide establishes standards for developing MapLibre vector styles that auth
 ## Layer Structure
 
 Organize layers in this order:
+
 1. Background/Water
 2. Land use
 3. Roads/Transportation
