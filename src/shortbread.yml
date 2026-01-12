@@ -15,7 +15,7 @@ sources:
     url: https://osmdata.openstreetmap.de/download/water-polygons-split-3857.zip
   osm:
     type: osm
-    url: '${ args.osm_url }'
+    url: "${ args.osm_url }"
 definitions:
   # TODO let attribute definitions set multiple keys so you can just use `- *names`
   attributes:
@@ -218,7 +218,7 @@ layers:
           overrides: *water_zoom_overrides
         include_when: *water_filter
         exclude_when:
-          name: ''
+          name: ""
         attributes:
           - key: kind
             type: match_value
@@ -288,7 +288,7 @@ layers:
             - stream
             - ditch
         exclude_when:
-          name: ''
+          name: ""
         attributes:
           - key: kind
             type: match_value
@@ -415,29 +415,29 @@ layers:
             - island
             - locality
         exclude_when:
-          name: ''
+          name: ""
         min_zoom:
           default_value: 10
           overrides:
             4:
               __all__:
                 place: [city, town, village, hamlet]
-                capital: [yes, '4']
+                capital: [yes, "4"]
             6:
               __all__:
                 place: city
                 __not__:
-                  capital: [yes, '4']
+                  capital: [yes, "4"]
             7:
               __all__:
                 place: town
                 __not__:
-                  capital: [yes, '4']
+                  capital: [yes, "4"]
         # TODO z-order
         attributes:
           - key: kind
             value:
-              default_value: '${ match_value }'
+              default_value: "${ match_value }"
               overrides:
                 capital:
                   __all__:
@@ -446,7 +446,7 @@ layers:
                 state_capital:
                   __all__:
                     place: [city, town, village, hamlet]
-                    capital: '4'
+                    capital: "4"
           - *name
           - *name_en
           - *name_de
@@ -622,30 +622,41 @@ layers:
           overrides:
             5:
               highway: motorway%
+              construction: motorway%
             6:
               highway: trunk%
+              construction: trunk%
             8:
               highway: primary%
+              construction: primary%
               __all__:
                 railway: [rail, narrow_gauge]
                 service: __any__
             9:
               highway: secondary%
+              construction: secondary%
             10:
               __all__:
                 railway: [rail, narrow_gauge]
-                service: ''
+                service: ""
               railway:
                 - funicular
                 - light_rail
                 - monorail
                 - subway
                 - tram
-              highway: tertiary
+              highway: tertiary%
+              construction: tertiary%
             11:
               aeroway: runway
+              construction: runway
             12:
               highway:
+                - bus_guideway
+                - busway
+                - residential
+                - unclassified
+              construction:
                 - bus_guideway
                 - busway
                 - residential
@@ -687,6 +698,38 @@ layers:
             - funicular
             - subway
             - monorail
+          construction: # TODO smarter handling of construction to include construction:*=* tag prefix
+            - motorway
+            - motorway_link
+            - trunk
+            - trunk_link
+            - primary
+            - primary_link
+            - secondary
+            - secondary_link
+            - tertiary
+            - tertiary_link
+            - unclassified
+            - residential
+            - busway
+            - bus_guideway
+            - living_street
+            - service
+            - pedestrian
+            - track
+            - footway
+            - steps
+            - path
+            - cycleway
+            - runway
+            - taxiway
+            - rail
+            - narrow_gauge
+            - tram
+            - light_rail
+            - funicular
+            - subway
+            - monorail
         attributes:
           - key: kind
             value: '${ match_value.replace("_link", "") }'
@@ -700,6 +743,17 @@ layers:
                 - primary_link
                 - secondary_link
                 - tertiary_link
+              construction:
+                - motorway_link
+                - trunk_link
+                - primary_link
+                - secondary_link
+                - tertiary_link
+            else: false
+          - key: construction
+            value: true
+            include_when:
+              construction: __any__
             else: false
           - key: rail
             min_zoom: 5
@@ -714,7 +768,7 @@ layers:
             value: true
             include_when:
               __all__:
-                railway: ''
+                railway: ""
                 oneway:
                   - yes
                   - 1
@@ -726,7 +780,7 @@ layers:
             value: true
             include_when:
               __all__:
-                railway: ''
+                railway: ""
                 oneway: -1
             else: false
           - key: tracktype
@@ -833,8 +887,8 @@ layers:
             - monorail
         exclude_when:
           __all__:
-            name: ''
-            ref: ''
+            name: ""
+            ref: ""
         attributes:
           - key: kind
             type: match_value
@@ -844,7 +898,7 @@ layers:
           # TODO use ref var to avoid duplicating logic
           - key: ref
             exclude_when: &missing_ref
-              ref: ''
+              ref: ""
             value: '${ feature.tags["ref"].replace(";", "\n") }'
           - key: ref_cols
             value: '${ max(feature.tags["ref"].split(";").map(r, size(r))) }'
@@ -975,7 +1029,7 @@ layers:
                 - tag_value: amenity
                 - tag_value: railway
                 - tag_value: highway
-                - 'aerialway_station'
+                - "aerialway_station"
           - *name
           - *name_en
           - *name_de
@@ -1062,7 +1116,7 @@ layers:
           - key: recycling:glass_bottles
             type: boolean
             value:
-              - if: { 'recycling:glass_bottles': yes }
+              - if: { "recycling:glass_bottles": yes }
                 value: true
               - else: false
             include_when:
@@ -1070,7 +1124,7 @@ layers:
           - key: recycling:paper
             type: boolean
             value:
-              - if: { 'recycling:paper': yes }
+              - if: { "recycling:paper": yes }
                 value: true
               - else: false
             include_when:
@@ -1078,7 +1132,7 @@ layers:
           - key: recycling:clothes
             type: boolean
             value:
-              - if: { 'recycling:clothes': yes }
+              - if: { "recycling:clothes": yes }
                 value: true
               - else: false
             include_when:
@@ -1086,7 +1140,7 @@ layers:
           - key: recycling:scrap_metal
             type: boolean
             value:
-              - if: { 'recycling:scrap_metal': yes }
+              - if: { "recycling:scrap_metal": yes }
                 value: true
               - else: false
             include_when:
