@@ -1,2 +1,6 @@
 *.code-workspace
 .vscode/
+node_modules
+build/
+data/
+*.jar
