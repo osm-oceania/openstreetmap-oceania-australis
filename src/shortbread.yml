@@ -188,7 +188,7 @@ layers:
       - source: osm
         geometry: polygon
         min_zoom:
-          default_value: 4
+          default_value: 5
           overrides: &water_zoom_overrides
             10:
               waterway: [dock, canal]
@@ -529,14 +529,21 @@ layers:
         min_zoom:
           default_value: 11
           overrides:
-            7:
-              natural: wood
-              landuse: forest
+            5:
+              natural: 
+              - wood
+              - grassland
+              - scrub
+              - heath
+              landuse: 
+              - forest
+              - sand
+              - farmland
+              - grass
             9:
               landuse:
                 - brownfield
                 - commercial
-                - farmland
                 - farmyard
                 - garages
                 - greenfield
@@ -547,7 +554,6 @@ layers:
                 - retail
               natural:
                 - beach
-                - sand
             10:
               amenity: grave_yard
               landuse: cemetery
@@ -623,7 +629,6 @@ layers:
             5:
               highway: motorway%
               construction: motorway%
-            6:
               highway: trunk%
               construction: trunk%
             8:
