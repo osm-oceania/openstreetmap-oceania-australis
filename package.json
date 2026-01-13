@@ -6,6 +6,7 @@
   "scripts": {
     "build:tiles:remote": "java -Xmx3g -jar planetiler.jar ./src/shortbread.yml --fetch-wikidata --download --region=australia-oceania --output=./build/oceania.pmtiles",
     "build:tiles": "java -Xmx3g -jar planetiler.jar ./src/shortbread.yml --fetch-wikidata --osm-path=./data/australia-oceania.osm.pbf --output=./build/oceania.pmtiles",
+    "build:tiles:sydney": "java -Xmx3g -jar planetiler.jar ./src/shortbread.yml --fetch-wikidata --osm-path=./data/sydney.pbf --output=./build/sydney.pmtiles",
     "serve": "./node_modules/.bin/tileserver-gl --config ./server.json",
     "format": "oxfmt",
     "format:check": "oxfmt --check"

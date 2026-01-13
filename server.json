@@ -1,8 +1,11 @@
 {
   "options": {
-    "paths": { "root": "/data", "styles": "styles", "pmtiles": "." }
+    "paths": { "root": "./build", "styles": "styles", "pmtiles": "." }
   },
-  "data": { "oceania": { "pmtiles": "oceania.pmtiles" } },
+  "data": {
+    "oceania": { "pmtiles": "oceania.pmtiles" },
+    "sydney": { "pmtiles": "sydney.pmtiles" }
+  },
   "styles": {
     "oceania-australis": {
       "style": "oceania-australis/oceania-australia-standard.json",
