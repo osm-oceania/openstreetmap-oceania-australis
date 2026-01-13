@@ -19,11 +19,12 @@ services:
     user: "${UID}:${GID}"
     volumes:
       - ./data:/data
-      - ./shortbread.yml:/shortbread.yml:ro
+      - ./src/shortbread.yml:/shortbread.yml:ro
     command:
       [
         "/shortbread.yml",
         "--fetch-wikidata",
-        "--osm-path=/data/australia-oceania.osm.pbf",
+        "--download",
+        "--area=australia-oceania",
         "--output=/data/oceania.pmtiles",
       ]
