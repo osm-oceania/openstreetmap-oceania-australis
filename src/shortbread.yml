@@ -627,8 +627,12 @@ layers:
           default_value: 13
           overrides:
             5:
-              highway: motorway%
-              construction: motorway%
+              highway: 
+                - motorway%
+                - trunk%
+              construction: 
+                - motorway%
+                - trunk%
               highway: trunk%
               construction: trunk%
             8:
