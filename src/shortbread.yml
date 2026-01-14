@@ -633,8 +633,6 @@ layers:
               construction: 
                 - motorway%
                 - trunk%
-              highway: trunk%
-              construction: trunk%
             8:
               highway: primary%
               construction: primary%
