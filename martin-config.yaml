@@ -1,0 +1,9 @@
+web_ui: enableforall
+pmtiles:
+  paths: ./build
+  sources:
+    oceania: ./build/oceania.pmtiles
+    sydney: ./build/sydney.pmtiles
+    sydney-shortbread-pr27: ./build/sydney-shortbread-pr27.pmtiles
+mbtiles: ./build
+styles: ./build/styles
