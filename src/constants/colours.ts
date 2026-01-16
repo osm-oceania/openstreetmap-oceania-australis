@@ -90,6 +90,30 @@ export const STREET_PEDESTRIAN_ZONE = 'hsla(210, 32%, 35%, 0.13)'
 
 // Rail
 
+// Labels
+export const LABEL_HALO = 'hsla(0, 0%, 100%, 0.80)'
+
+export const LABEL_ADDRESS_NUMBER_TEXT = 'hsl(33, 6%, 64%)'
+export const LABEL_ADDRESS_NUMBER_HALO = 'hsl(30, 40%, 92%)'
+
+export const LABEL_MOTORWAY_SHIELD_TEXT = 'hsl(0, 0%, 100%)'
+export const LABEL_MOTORWAY_SHIELD_HALO = 'hsl(34, 100%, 77%)'
+
+export const LABEL_STREET_TEXT = 'hsl(240, 14%, 23%)'
+export const LABEL_STREET_HALO = LABEL_HALO
+
+export const LABEL_PLACE_NEIGHBOURHOOD_TEXT = 'hsl(191, 29%, 22%)'
+export const LABEL_PLACE_QUARTER_TEXT = 'hsl(200, 29%, 22%)'
+export const LABEL_PLACE_SUBURB_TEXT = 'hsl(209, 29%, 22%)'
+export const LABEL_PLACE_HVT_TEXT = 'hsl(225, 29%, 22%)'
+export const LABEL_PLACE_CITY_TEXT = 'hsl(225, 29%, 22%)'
+export const LABEL_PLACE_HALO = LABEL_HALO
+
+export const LABEL_BOUNDARY_STATE_TEXT = 'hsl(240, 12%, 27%)'
+export const LABEL_BOUNDARY_STATE_HALO = LABEL_HALO
+export const LABEL_BOUNDARY_COUNTRY_TEXT = 'hsl(240, 14%, 23%)'
+export const LABEL_BOUNDARY_COUNTRY_HALO = LABEL_HALO
+
 // Exports
 export const base = {
   background: BACKGROUND,
@@ -146,4 +170,23 @@ export const amenity = {
   prison: SITE_PRISON,
   military: SITE_MILITARY,
   airport: SITE_AIRPORT,
+}
+
+export const label = {
+  addressNumberText: LABEL_ADDRESS_NUMBER_TEXT,
+  addressNumberHalo: LABEL_ADDRESS_NUMBER_HALO,
+  motorwayShieldText: LABEL_MOTORWAY_SHIELD_TEXT,
+  motorwayShieldHalo: LABEL_MOTORWAY_SHIELD_HALO,
+  streetText: LABEL_STREET_TEXT,
+  streetHalo: LABEL_STREET_HALO,
+  placeNeighbourhoodText: LABEL_PLACE_NEIGHBOURHOOD_TEXT,
+  placeQuarterText: LABEL_PLACE_QUARTER_TEXT,
+  placeSuburbText: LABEL_PLACE_SUBURB_TEXT,
+  placeHamletVillageTownText: LABEL_PLACE_HVT_TEXT,
+  placeCityText: LABEL_PLACE_CITY_TEXT,
+  placeHalo: LABEL_PLACE_HALO,
+  boundaryStateText: LABEL_BOUNDARY_STATE_TEXT,
+  boundaryStateHalo: LABEL_BOUNDARY_STATE_HALO,
+  boundaryCountryText: LABEL_BOUNDARY_COUNTRY_TEXT,
+  boundaryCountryHalo: LABEL_BOUNDARY_COUNTRY_HALO,
 }

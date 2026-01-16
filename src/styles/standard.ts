@@ -1,4 +1,5 @@
 import { MaplibreLayerDefinition, StyleSpecification } from '../types/maplibre'
+import { LayerSpecification } from '@maplibre/maplibre-gl-style-spec'
 
 import base from '../layers/base'
 import landUse from '../layers/landuse'
@@ -10,6 +11,8 @@ import water from '../layers/water'
 // import rail from '../layers/rail'
 // import path from '../layers/path'
 // import boundary from '../layers/boundary'
+import label from '../layers/label'
+import poi from '../layers/poi'
 
 export function buildLayers(): MaplibreLayerDefinition[] {
   // This is where you enforce the final draw order.
@@ -25,6 +28,8 @@ export function buildLayers(): MaplibreLayerDefinition[] {
     // ...road(),
     // ...rail(),
     // ...path(),
+    ...label(),
+    ...poi(),
   ]
 }
 
