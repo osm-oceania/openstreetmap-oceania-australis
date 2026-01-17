@@ -91,6 +91,13 @@ export const STREET_PEDESTRIAN_ZONE = 'hsla(210, 32%, 35%, 0.13)'
 
 // Rail
 
+//Boundaries
+export const BOUNDARY_COUNTRY = 'hsl(240, 24%, 72%)'
+export const BOUNDARY_COUNTRY_DISPUTED = 'hsl(246, 17%, 78%)'
+export const BOUNDARY_COUNTRY_OUTLINE = 'hsl(36, 46%, 96%)'
+export const BOUNDARY_STATE = 'hsl(240, 24%, 72%)'
+export const BOUNDARY_STATE_OUTLINE = 'hsl(30, 50%, 96%)'
+
 // Labels
 export const LABEL_HALO = 'hsla(0, 0%, 100%, 0.80)'
 
@@ -177,6 +184,14 @@ export const amenity = {
   prison: SITE_PRISON,
   military: SITE_MILITARY,
   airport: SITE_AIRPORT,
+}
+
+export const boundary = {
+  country: BOUNDARY_COUNTRY,
+  countryDisputed: BOUNDARY_COUNTRY_DISPUTED,
+  state: BOUNDARY_STATE,
+  countryOutline: BOUNDARY_COUNTRY_OUTLINE,
+  stateOutline: BOUNDARY_STATE_OUTLINE,
 }
 
 export const label = {
