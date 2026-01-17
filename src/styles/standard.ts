@@ -6,7 +6,7 @@ import landUse from '../layers/landuse'
 import amenities from '../layers/amenity'
 import landCover from '../layers/landcover'
 import water from '../layers/water'
-// import building from '../layers/building'
+import building from '../layers/building'
 // import road from '../layers/road'
 // import rail from '../layers/rail'
 // import path from '../layers/path'
@@ -23,7 +23,7 @@ export function buildLayers(): MaplibreLayerDefinition[] {
     ...amenities(),
     ...landCover(),
     ...water(),
-    // ...building(),
+    ...building(),
     // ...boundary(),
     // ...road(),
     // ...rail(),

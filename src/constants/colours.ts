@@ -54,7 +54,8 @@ export const SITE_AIRPORT = 'hsl(240, 7%, 87%)'
 
 // Buildings
 export const BUILDING = 'hsl(29, 46%, 88%)'
-export const BUILDING_OUTLINE = 'hsla(29, 13%, 68%, 0.5)'
+export const BUILDING_OUTLINE = 'hsl(27, 26%, 74%)'
+export const BUILDING_OUTLINE_FILL = 'hsla(29, 13%, 68%, 0.5)'
 
 // Bridges
 export const BRIDGE = 'hsla(33, 33%, 94%, 0.5)'
@@ -151,6 +152,12 @@ export const land = {
   vegetation: LAND_VEGETATION,
   forest: LAND_FOREST,
   wetland: LAND_WETLAND,
+}
+
+export const building = {
+  buil: BUILDING,
+  outlineFill: BUILDING_OUTLINE_FILL,
+  outline: BUILDING_OUTLINE,
 }
 
 export const amenity = {
