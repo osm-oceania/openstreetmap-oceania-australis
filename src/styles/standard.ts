@@ -10,7 +10,7 @@ import building from '../layers/building'
 // import road from '../layers/road'
 // import rail from '../layers/rail'
 // import path from '../layers/path'
-// import boundary from '../layers/boundary'
+import boundary from '../layers/boundary'
 import label from '../layers/label'
 import poi from '../layers/poi'
 
@@ -24,7 +24,7 @@ export function buildLayers(): MaplibreLayerDefinition[] {
     ...landCover(),
     ...water(),
     ...building(),
-    // ...boundary(),
+    ...boundary(),
     // ...road(),
     // ...rail(),
     // ...path(),
