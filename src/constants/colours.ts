@@ -90,6 +90,24 @@ export const STREET_PEDESTRIAN_ZONE = 'hsla(210, 32%, 35%, 0.13)'
 // Paths
 
 // Rail
+export const TRANSPORT_FUNICULAR = 'hsl(208, 14%, 73%)'
+export const TRANSPORT_FUNICULAR_OUTLINE = 'hsl(208, 14%, 73%)'
+export const TRANSPORT_LIGHTRAIL = 'hsl(210, 14%, 80%)'
+export const TRANSPORT_LIGHTRAIL_OUTLINE = 'hsl(208, 14%, 73%)'
+export const TRANSPORT_LIGHTRAIL_SERVICE = 'hsl(210, 14%, 80%)'
+export const TRANSPORT_LIGHTRAIL_SERVICE_OUTLINE = 'hsl(208, 14%, 73%)'
+export const TRANSPORT_MONORAIL = 'hsl(208, 14%, 73%)'
+export const TRANSPORT_MONORAIL_OUTLINE = 'hsl(208, 14%, 73%)'
+export const TRANSPORT_NARROWGAUGE = 'hsl(208, 14%, 73%)'
+export const TRANSPORT_NARROWGAUGE_OUTLINE = 'hsl(208, 14%, 73%)'
+export const TRANSPORT_RAIL = 'hsl(240, 100%, 100%)'
+export const TRANSPORT_RAIL_OUTLINE = 'hsl(0, 0%, 72%)'
+export const TRANSPORT_RAIL_SERVICE = 'hsl(210, 14%, 80%)'
+export const TRANSPORT_RAIL_SERVICE_OUTLINE = 'hsl(208, 14%, 73%)'
+export const TRANSPORT_SUBWAY = 'hsl(206, 23%, 79%)'
+export const TRANSPORT_SUBWAY_OUTLINE = 'hsl(207, 23%, 72%)'
+export const TRANSPORT_TRAM = 'hsl(208, 14%, 73%)'
+export const TRANSPORT_TRAM_OUTLINE = 'hsl(208, 14%, 73%)'
 
 //Boundaries
 export const BOUNDARY_COUNTRY = 'hsl(240, 24%, 72%)'
@@ -184,6 +202,27 @@ export const amenity = {
   prison: SITE_PRISON,
   military: SITE_MILITARY,
   airport: SITE_AIRPORT,
+}
+
+export const rail = {
+  funicular: TRANSPORT_FUNICULAR,
+  funicularOutline: TRANSPORT_FUNICULAR_OUTLINE,
+  lightrail: TRANSPORT_LIGHTRAIL,
+  lightrailOutline: TRANSPORT_LIGHTRAIL_OUTLINE,
+  lightrailService: TRANSPORT_LIGHTRAIL_SERVICE,
+  lightrailServiceOutline: TRANSPORT_LIGHTRAIL_SERVICE_OUTLINE,
+  monorail: TRANSPORT_MONORAIL,
+  monorailOutline: TRANSPORT_MONORAIL_OUTLINE,
+  narrowgauge: TRANSPORT_NARROWGAUGE,
+  narrowgaugeOutline: TRANSPORT_NARROWGAUGE_OUTLINE,
+  rail: TRANSPORT_RAIL,
+  railOutline: TRANSPORT_RAIL_OUTLINE,
+  railService: TRANSPORT_RAIL_SERVICE,
+  railServiceOutline: TRANSPORT_RAIL_SERVICE_OUTLINE,
+  subway: TRANSPORT_SUBWAY,
+  subwayOutline: TRANSPORT_SUBWAY_OUTLINE,
+  tram: TRANSPORT_TRAM,
+  tramOutline: TRANSPORT_TRAM_OUTLINE,
 }
 
 export const boundary = {
