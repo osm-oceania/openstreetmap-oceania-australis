@@ -1,6 +1,742 @@
+import { MaplibreLayerDefinition } from '../types/maplibre'
+import { stops } from '../utils/style'
+import { all, equals, kindEquals, kindIn, notEquals } from '../utils/filters'
+
 // Zoom levels
 const minZoom = 4
 const minZoomMotorway = 4
 const minZoomTrunk = 4
 const minZoomPrimary = 8
 const minZoomSecondary = 9
+export default function roadLayer(): MaplibreLayerDefinition[] {
+  return [
+    {
+      id: 'street-track',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        kindEquals('track'),
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-width': stops([
+          [13, 0],
+          [16, 2],
+          [18, 3],
+          [20, 6],
+        ]),
+        'line-color': stops([
+          [14, 'rgba(243, 220, 221, 1)'],
+          [14.5, 'rgba(183, 123, 64, 1)'],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [3, 3]],
+        ],
+      },
+    },
+    {
+      id: 'street-pedestrian',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        kindEquals('pedestrian'),
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgba(229, 229, 232, 1)',
+        'line-width': stops([
+          [12, 1],
+          [14, 2],
+          [16, 5],
+          [18, 24],
+          [19, 40],
+          [20, 100],
+        ]),
+        'line-opacity': stops([
+          [12, 0],
+          [13, 0],
+          [14, 1],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-service',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        kindEquals('service'),
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+      ),
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round',
+        'line-round-limit': 1.05,
+        'line-miter-limit': 2,
+      },
+      paint: {
+        'line-color': 'rgb(255,255,255)',
+        'line-width': stops([
+          [14, 1],
+          [16, 2],
+          [18, 10],
+          [19, 25],
+          [20, 40],
+        ]),
+        'line-opacity': stops([
+          [14, 0],
+          [15, 1],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-livingstreet',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        kindEquals('living_street'),
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgb(255,255,255)',
+        'line-width': stops([
+          [12, 1],
+          [14, 2],
+          [16, 5],
+          [18, 24],
+          [19, 60],
+          [20, 120],
+        ]),
+        'line-opacity': stops([
+          [12, 0],
+          [13, 1],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-residential',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        kindEquals('residential'),
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgb(255,255,255)',
+        'line-width': stops([
+          [12, 1],
+          [14, 2],
+          [16, 5],
+          [18, 24],
+          [19, 40],
+          [20, 100],
+        ]),
+        'line-opacity': stops([
+          [12, 0],
+          [13, 1],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-unclassified',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        kindEquals('unclassified'),
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgb(255,255,255)',
+        'line-width': stops([
+          [12, 1],
+          [14, 2],
+          [16, 5],
+          [18, 24],
+          [19, 40],
+          [20, 100],
+        ]),
+        'line-opacity': stops([
+          [12, 0],
+          [13, 1],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-busway',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        kindEquals('busway'),
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgba(255, 192, 192, 1)',
+        'line-width': stops([
+          [12, 1],
+          [14, 2],
+          [16, 5],
+          [18, 24],
+          [19, 40],
+          [20, 100],
+        ]),
+        'line-opacity': stops([
+          [12, 0],
+          [13, 1],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-track-bicycle',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        kindEquals('track'),
+        equals('bicycle', 'designated'),
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgb(255,255,255)',
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-pedestrian-bicycle',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        kindEquals('pedestrian'),
+        equals('bicycle', 'designated'),
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+      ),
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round',
+        visibility: 'visible',
+      },
+      paint: {
+        'line-color': 'rgba(217, 217, 232, 1)',
+        'line-width': stops([
+          [12, 1],
+          [14, 2],
+          [16, 5],
+          [18, 24],
+          [19, 40],
+          [20, 100],
+        ]),
+        'line-opacity': stops([
+          [12, 0],
+          [13, 1],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-service-bicycle',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        kindEquals('service'),
+        equals('bicycle', 'designated'),
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgb(255,255,255)',
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-livingstreet-bicycle',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        kindEquals('living_street'),
+        equals('bicycle', 'designated'),
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgb(239,249,255)',
+        'line-width': stops([
+          [12, 1],
+          [14, 2],
+          [16, 5],
+          [18, 24],
+          [19, 60],
+          [20, 120],
+        ]),
+        'line-opacity': stops([
+          [12, 0],
+          [13, 1],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-residential-bicycle',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        kindEquals('residential'),
+        equals('bicycle', 'designated'),
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgba(240, 245, 247, 1)',
+        'line-width': stops([
+          [12, 1],
+          [14, 2],
+          [16, 5],
+          [18, 24],
+          [19, 40],
+          [20, 100],
+        ]),
+        'line-opacity': stops([
+          [12, 0],
+          [13, 1],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-unclassified-bicycle',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        kindEquals('unclassified'),
+        equals('bicycle', 'designated'),
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgb(239,249,255)',
+        'line-width': stops([
+          [12, 1],
+          [14, 2],
+          [16, 5],
+          [18, 24],
+          [19, 60],
+          [20, 120],
+        ]),
+        'line-opacity': stops([
+          [12, 0],
+          [13, 1],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-tertiary-link',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+        kindIn('tertiary'),
+        equals('link', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgb(255,255,255)',
+        'line-width': stops([
+          [12, 1],
+          [14, 2],
+          [16, 5],
+          [18, 24],
+          [19, 60],
+          [20, 120],
+        ]),
+        'line-opacity': stops([
+          [12, 0],
+          [13, 1],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-secondary-link',
+      type: 'line',
+      'source-layer': 'streets',
+      minzoom: 13,
+      filter: all(
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+        kindIn('secondary'),
+        equals('link', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgb(255,238,170)',
+        'line-width': stops([
+          [12, 1],
+          [14, 2],
+          [16, 5],
+          [18, 12],
+          [20, 38],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-primary-link',
+      type: 'line',
+      'source-layer': 'streets',
+      minzoom: 13,
+      filter: all(
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+        kindIn('primary'),
+        equals('link', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgb(255,238,170)',
+        'line-width': stops([
+          [12, 1],
+          [14, 2],
+          [16, 5],
+          [18, 12],
+          [20, 38],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-trunk-link',
+      type: 'line',
+      'source-layer': 'streets',
+      minzoom: 13,
+      filter: all(
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+        kindIn('trunk'),
+        equals('link', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgb(255,238,170)',
+        'line-width': stops([
+          [12, 1],
+          [14, 2],
+          [16, 5],
+          [18, 12],
+          [20, 38],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-motorway-link',
+      type: 'line',
+      'source-layer': 'streets',
+      minzoom: 10,
+      filter: all(
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+        kindIn('motorway'),
+        equals('link', true),
+      ),
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round',
+        visibility: 'visible',
+      },
+      paint: {
+        'line-color': 'rgba(255, 145, 136, 1)',
+        'line-width': stops([
+          [12, 1],
+          [14, 2],
+          [16, 5],
+          [18, 12],
+          [20, 38],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-tertiary',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+        kindIn('tertiary'),
+        notEquals('link', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgb(255,255,255)',
+        'line-width': stops([
+          [12, 2],
+          [14, 4],
+          [16, 8],
+          [18, 32],
+          [19, 60],
+          [20, 120],
+        ]),
+        'line-opacity': stops([
+          [10, 0],
+          [11, 1],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-secondary',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+        kindIn('secondary'),
+        notEquals('link', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgb(255,238,170)',
+        'line-width': stops([
+          [11, 1],
+          [14, 4],
+          [16, 10],
+          [18, 28],
+          [19, 55],
+          [20, 120],
+        ]),
+        'line-opacity': stops([
+          [11, 0],
+          [12, 1],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-primary',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+        kindIn('primary'),
+        notEquals('link', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgb(255,238,170)',
+        'line-width': stops([
+          [8, 0],
+          [9, 2],
+          [10, 3],
+          [14, 5],
+          [16, 10],
+          [18, 28],
+          [19, 55],
+          [20, 120],
+        ]),
+        'line-opacity': stops([
+          [8, 0],
+          [9, 1],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-trunk',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+        kindIn('trunk'),
+        notEquals('link', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgba(255, 199, 146, 1)',
+        'line-width': stops([
+          [7, 0],
+          [8, 1],
+          [10, 3],
+          [14, 5],
+          [16, 10],
+          [18, 28],
+          [19, 55],
+          [20, 120],
+        ]),
+        'line-opacity': stops([
+          [7, 0],
+          [8, 1],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+    {
+      id: 'street-motorway',
+      type: 'line',
+      'source-layer': 'streets',
+      filter: all(
+        notEquals('bridge', true),
+        notEquals('tunnel', true),
+        kindIn('motorway'),
+        notEquals('link', true),
+      ),
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: {
+        'line-color': 'rgba(255, 145, 136, 1)',
+        'line-width': stops([
+          [5, 0],
+          [6, 1],
+          [10, 4],
+          [14, 4],
+          [16, 12],
+          [18, 36],
+          [19, 80],
+          [20, 160],
+        ]),
+        'line-opacity': stops([
+          [5, 0],
+          [6, 1],
+        ]),
+        'line-dasharray': [
+          'case',
+          ['get', 'construction'],
+          ['literal', [2, 2]],
+          ['literal', [1]],
+        ],
+      },
+    },
+  ]
+}
