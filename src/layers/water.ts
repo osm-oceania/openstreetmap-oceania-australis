@@ -1,7 +1,7 @@
+import { water } from '../constants/colours'
+import type { MaplibreLayerDefinition } from '../types/maplibre'
 import { kindIn, kindEquals, surfaceOnly } from '../utils/filters'
 import { stops } from '../utils/style'
-import type { MaplibreLayerDefinition } from '../types/maplibre'
-import { water } from '../constants/colours'
 
 export default function waterLayers(): MaplibreLayerDefinition[] {
   return [

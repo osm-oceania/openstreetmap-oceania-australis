@@ -4,5 +4,16 @@
   "bracketSameLine": true,
   "printWidth": 80,
   "semi": false,
-  "singleQuote": true
+  "singleQuote": true,
+  "experimentalSortImports": {
+    "groups": [
+      ["side-effect"],
+      ["builtin"],
+      ["external", "external-type"],
+      ["internal", "internal-type"],
+      ["parent", "parent-type"],
+      ["sibling", "sibling-type"],
+      ["index", "index-type"]
+    ]
+  }
 }

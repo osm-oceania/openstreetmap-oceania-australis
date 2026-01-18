@@ -1,5 +1,5 @@
-import type { MaplibreLayerDefinition } from '../types/maplibre'
 import { amenity } from '../constants/colours'
+import type { MaplibreLayerDefinition } from '../types/maplibre'
 import { kindEquals, kindIn } from '../utils/filters'
 
 export default function amenityLayer(): MaplibreLayerDefinition[] {

@@ -1,5 +1,5 @@
-import type { MaplibreLayerDefinition } from '../types/maplibre'
 import { base as baseColour } from '../constants/colours'
+import type { MaplibreLayerDefinition } from '../types/maplibre'
 import { kindEquals } from '../utils/filters'
 
 export default function base(): MaplibreLayerDefinition[] {

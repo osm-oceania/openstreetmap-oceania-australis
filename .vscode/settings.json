@@ -4,6 +4,7 @@
     "dasharray",
     "doityourself",
     "housenumber",
+    "landcover",
     "landuse",
     "maputnik",
     "mlgljs",
@@ -30,5 +31,5 @@
   "[typescript]": { "editor.defaultFormatter": "oxc.oxc-vscode" },
   "[typescriptreact]": { "editor.defaultFormatter": "oxc.oxc-vscode" },
   "oxc.typeAware": true,
-  "source.fixAll.oxc": true,
+  "source.fixAll.oxc": true
 }

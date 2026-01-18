@@ -1,6 +1,6 @@
 import { MaplibreLayerDefinition } from '../types/maplibre'
-import { stops } from '../utils/style'
 import { all, equals, kindEquals, kindIn, notEquals } from '../utils/filters'
+import { stops } from '../utils/style'
 
 // Zoom levels
 const minZoom = 4

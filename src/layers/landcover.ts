@@ -1,5 +1,5 @@
-import type { MaplibreLayerDefinition } from '../types/maplibre'
 import { land } from '../constants/colours'
+import type { MaplibreLayerDefinition } from '../types/maplibre'
 import { kindIn } from '../utils/filters'
 import { stops } from '../utils/style'
 
