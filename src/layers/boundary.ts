@@ -9,12 +9,12 @@ export default function boundaryLayer(): MaplibreLayerDefinition[] {
       id: 'boundary-country:outline',
       type: 'line',
       'source-layer': 'boundaries',
-      filter: all([
+      filter: all(
         equals('admin_level', 2),
         notEquals('maritime', true),
         notEquals('disputed', true),
         notEquals('coastline', true),
-      ]),
+      ),
       layout: { 'line-cap': 'round', 'line-join': 'round' },
       paint: {
         'line-color': boundary.countryOutline,
@@ -31,12 +31,12 @@ export default function boundaryLayer(): MaplibreLayerDefinition[] {
       id: 'boundary-country-disputed:outline',
       type: 'line',
       'source-layer': 'boundaries',
-      filter: all([
+      filter: all(
         equals('admin_level', 2),
         equals('disputed', true),
         notEquals('maritime', true),
         notEquals('coastline', true),
-      ]),
+      ),
       paint: {
         'line-width': stops([
           [2, 0],
@@ -51,12 +51,12 @@ export default function boundaryLayer(): MaplibreLayerDefinition[] {
       id: 'boundary-state:outline',
       type: 'line',
       'source-layer': 'boundaries',
-      filter: all([
+      filter: all(
         equals('admin_level', 4),
         notEquals('maritime', true),
         notEquals('disputed', true),
         notEquals('coastline', true),
-      ]),
+      ),
       layout: { 'line-cap': 'round', 'line-join': 'round' },
       paint: {
         'line-color': boundary.stateOutline,
@@ -73,12 +73,12 @@ export default function boundaryLayer(): MaplibreLayerDefinition[] {
       id: 'boundary-country',
       type: 'line',
       'source-layer': 'boundaries',
-      filter: all([
+      filter: all(
         equals('admin_level', 2),
         notEquals('maritime', true),
         notEquals('disputed', true),
         notEquals('coastline', true),
-      ]),
+      ),
       layout: { 'line-cap': 'round', 'line-join': 'round' },
       paint: {
         'line-color': boundary.country,
@@ -93,12 +93,12 @@ export default function boundaryLayer(): MaplibreLayerDefinition[] {
       id: 'boundary-country-disputed',
       type: 'line',
       'source-layer': 'boundaries',
-      filter: all([
+      filter: all(
         equals('admin_level', 2),
         equals('disputed', true),
         notEquals('maritime', true),
         notEquals('coastline', true),
-      ]),
+      ),
       layout: { 'line-cap': 'square' },
       paint: {
         'line-width': stops([
@@ -114,12 +114,12 @@ export default function boundaryLayer(): MaplibreLayerDefinition[] {
       id: 'boundary-state',
       type: 'line',
       'source-layer': 'boundaries',
-      filter: all([
+      filter: all(
         equals('admin_level', 4),
         notEquals('maritime', true),
         notEquals('disputed', true),
         notEquals('coastline', true),
-      ]),
+      ),
       layout: { 'line-cap': 'round', 'line-join': 'round' },
       paint: {
         'line-color': boundary.state,
