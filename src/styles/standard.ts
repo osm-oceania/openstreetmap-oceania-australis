@@ -12,6 +12,7 @@ import landUse from '../layers/landuse'
 import poi from '../layers/poi'
 import rail from '../layers/rail'
 import road from '../layers/road'
+import symbol from '../layers/symbols'
 import water from '../layers/water'
 import { MaplibreLayerDefinition, StyleSpecification } from '../types/maplibre'
 
@@ -35,6 +36,7 @@ export function buildLayers(): LayerSpecification[] {
     // ...path(),
     ...label(),
     ...poi(),
+    ...symbol(),
   ]
 
   return styleBuilder(definitions, {
