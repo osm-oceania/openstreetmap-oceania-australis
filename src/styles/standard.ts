@@ -1,23 +1,28 @@
-import { MaplibreLayerDefinition, StyleSpecification } from '../types/maplibre'
-import { LayerSpecification } from '@maplibre/maplibre-gl-style-spec'
+import type { LayerSpecification } from '@maplibre/maplibre-gl-style-spec'
 
-import base from '../layers/base'
-import landUse from '../layers/landuse'
+import { styleBuilder } from '../build'
 import amenities from '../layers/amenity'
-import landCover from '../layers/landcover'
-import water from '../layers/water'
-import building from '../layers/building'
-import road from '../layers/road'
-// import rail from '../layers/rail'
-// import path from '../layers/path'
+import base from '../layers/base'
 import boundary from '../layers/boundary'
+import building from '../layers/building'
 import label from '../layers/label'
+import landCover from '../layers/landcover'
+import landUse from '../layers/landuse'
+// import path from '../layers/path'
 import poi from '../layers/poi'
+import rail from '../layers/rail'
+import road from '../layers/road'
+import water from '../layers/water'
+import { MaplibreLayerDefinition, StyleSpecification } from '../types/maplibre'
 
-export function buildLayers(): MaplibreLayerDefinition[] {
-  // This is where you enforce the final draw order.
-  // Start from your existing style.json ordering and keep it here.
-  return [
+/**
+ * Build the final MapLibre layer specifications by injecting the source property
+ * for each layer.
+ *
+ * @returns MapLibre LayerSpecification array
+ */
+export function buildLayers(): LayerSpecification[] {
+  const definitions: MaplibreLayerDefinition[] = [
     ...base(),
     ...landUse(),
     ...amenities(),
@@ -26,13 +31,20 @@ export function buildLayers(): MaplibreLayerDefinition[] {
     ...building(),
     ...boundary(),
     ...road(),
-    // ...rail(),
+    ...rail(),
     // ...path(),
     ...label(),
     ...poi(),
   ]
+
+  return styleBuilder(definitions, {
+    source: process.env.TILE_SOURCE || 'shortbread',
+  })
 }
 
+/**
+ * The output MapLibre style specification.
+ */
 export const standardJson: StyleSpecification = {
   version: 8,
   name: 'oceania-australis-standard',

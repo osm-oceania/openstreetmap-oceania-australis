@@ -6,10 +6,11 @@
   "scripts": {
     "build:tiles:remote": "java -Xmx3g -jar planetiler.jar ./src/shortbread.yml --fetch-wikidata --download --region=australia-oceania --output=./build/oceania.pmtiles",
     "build:tiles": "java -Xmx3g -jar planetiler.jar ./src/shortbread.yml --fetch-wikidata --osm-path=./data/australia-oceania.osm.pbf --output=./build/oceania.pmtiles",
-    "format": "oxfmt",
-    "format:check": "oxfmt --check",
-    "lint": "oxlint --type-aware --type-check",
-    "lint:fix": "oxlint --type-aware --type-check --fix",
+    "build:style": "bun src/build.ts",
+    "format": "oxfmt --ignore-path=./.oxlintignore",
+    "format:check": "oxfmt --check --ignore-path=./.oxlintignore",
+    "lint": "oxlint --type-aware --type-check --ignore-path=./.oxlintignore",
+    "lint:fix": "oxlint --type-aware --type-check --fix --ignore-path=./.oxlintignore",
     "serve": "./node_modules/.bin/tileserver-gl --config ./server.json"
   },
   "dependencies": {},
