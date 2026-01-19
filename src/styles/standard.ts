@@ -3,6 +3,7 @@ import type { LayerSpecification } from '@maplibre/maplibre-gl-style-spec'
 import { styleBuilder } from '../build'
 import amenities from '../layers/amenity'
 import amenities2 from '../layers/amenity2'
+import area from '../layers/area'
 import base from '../layers/base'
 import boundary from '../layers/boundary'
 import building from '../layers/building'
@@ -35,6 +36,7 @@ export function buildLayers(): LayerSpecification[] {
     ...amenities2(),
     ...building(),
     ...boundary(),
+    ...area(),
     ...road(),
     ...transport(),
     ...rail(),
