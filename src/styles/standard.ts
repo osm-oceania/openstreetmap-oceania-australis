@@ -12,6 +12,7 @@ import landCover from '../layers/landcover'
 import landUse from '../layers/landuse'
 import marking from '../layers/marking'
 import path from '../layers/path'
+import pathOutline from '../layers/pathOutline'
 import poi from '../layers/poi'
 import rail from '../layers/rail'
 import road from '../layers/road'
@@ -38,6 +39,7 @@ export function buildLayers(): LayerSpecification[] {
     ...building(),
     ...boundary(),
     ...area(),
+    ...pathOutline(),
     ...roadOutline(),
     ...path(),
     ...road(),
