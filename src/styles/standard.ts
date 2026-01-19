@@ -15,6 +15,7 @@ import path from '../layers/path'
 import poi from '../layers/poi'
 import rail from '../layers/rail'
 import road from '../layers/road'
+import roadOutline from '../layers/roadOutline'
 import symbol from '../layers/symbols'
 import transport from '../layers/transport'
 import water from '../layers/water'
@@ -37,10 +38,11 @@ export function buildLayers(): LayerSpecification[] {
     ...building(),
     ...boundary(),
     ...area(),
+    ...roadOutline(),
+    ...path(),
     ...road(),
     ...transport(),
     ...rail(),
-    ...path(),
     ...label(),
     ...poi(),
     ...marking(),
