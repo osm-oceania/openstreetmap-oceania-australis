@@ -2,17 +2,20 @@ import type { LayerSpecification } from '@maplibre/maplibre-gl-style-spec'
 
 import { styleBuilder } from '../build'
 import amenities from '../layers/amenity'
+import amenities2 from '../layers/amenity2'
 import base from '../layers/base'
 import boundary from '../layers/boundary'
 import building from '../layers/building'
 import label from '../layers/label'
 import landCover from '../layers/landcover'
 import landUse from '../layers/landuse'
-// import path from '../layers/path'
+import marking from '../layers/marking'
+import path from '../layers/path'
 import poi from '../layers/poi'
 import rail from '../layers/rail'
 import road from '../layers/road'
 import symbol from '../layers/symbols'
+import transport from '../layers/transport'
 import water from '../layers/water'
 import { MaplibreLayerDefinition, StyleSpecification } from '../types/maplibre'
 
@@ -29,13 +32,16 @@ export function buildLayers(): LayerSpecification[] {
     ...amenities(),
     ...landCover(),
     ...water(),
+    ...amenities2(),
     ...building(),
     ...boundary(),
     ...road(),
+    ...transport(),
     ...rail(),
-    // ...path(),
+    ...path(),
     ...label(),
     ...poi(),
+    ...marking(),
     ...symbol(),
   ]
 
