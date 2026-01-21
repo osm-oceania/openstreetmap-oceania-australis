@@ -105,7 +105,7 @@ export default function pathLayers(): LayerBuckets {
           opacity: zoomOpacityInverse(16, 15),
         },
         dash: {
-          color: PATH_STEPS_DASH,
+          color: PATH_FOOTWAY_DASH,
           width: stops([
             [15, 0],
             [16, 1.75],
@@ -237,7 +237,7 @@ export default function pathLayers(): LayerBuckets {
       fill: {
         color: stops([
           [15.99, PATH_STEPS_OUTLINE],
-          [16, PATH_STEPS],
+          [16, PATH_STEPS_DASH],
         ]),
         width: stops([
           [15, 0],

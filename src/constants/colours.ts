@@ -108,7 +108,7 @@ export const STREET_BICYCLE_UNCLASSIFIED = 'hsl(200, 100%, 97%)'
 // Paths
 export const PATH_STEPS = 'hsl(355, 60%, 62%)'
 export const PATH_STEPS_DASH = 'hsl(356,48%,54%)'
-export const PATH_STEPS_OUTLINE = 'hsl(350, 35%, 91%)'
+export const PATH_STEPS_OUTLINE = 'hsl(359, 70%, 94%)'
 
 export const PATH_FOOTWAY = 'hsl(355, 60%, 62%)'
 export const PATH_FOOTWAY_DASH = 'hsl(357, 73%, 69%)'
