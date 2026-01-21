@@ -60,6 +60,7 @@ export const BUILDING_OUTLINE_FILL = 'hsla(29, 13%, 68%, 0.5)'
 // Bridges
 export const BRIDGE = 'hsla(33, 33%, 94%, 0.5)'
 export const BRIDGE_OUTLINE = 'hsla(33, 33%, 94%, 0.5)'
+
 // Transport
 // Major roads
 export const STREET_MOTORWAY = 'hsl(5, 100%, 77%)'
@@ -67,27 +68,74 @@ export const STREET_MOTORWAY_OUTLINE = 'hsl(0, 72%, 69%)'
 
 export const STREET_TRUNK = 'hsl(29, 100%, 79%)'
 export const STREET_TRUNK_OUTLINE = 'hsl(28, 92%, 69%)'
+
 export const STREET_PRIMARY = 'hsl(48, 100%, 83%)'
 export const STREET_PRIMARY_OUTLINE = 'hsl(28, 72%, 69%)'
 
 export const STREET_SECONDARY = 'hsl(48, 100%, 83%)'
 export const STREET_SECONDARY_OUTLINE = 'hsl(28, 72%, 69%)'
+
 export const STREET_TERTIARY = 'hsl(0, 0%, 100%)'
 export const STREET_TERTIARY_OUTLINE = 'hsl(36, 5%, 80%)'
 
 // Minor roads
 export const STREET_RESIDENTIAL = 'hsl(0, 0%, 100%)'
 export const STREET_RESIDENTIAL_OUTLINE = 'hsl(40, 4%, 86%)'
-export const STREET_UNCLASSIFIED = 'hsl(0, 0%, 100%)'
-export const STREET_UNCLASSIFIED_OUTLINE = 'hsl(40, 4%, 86%)'
+// export const STREET_UNCLASSIFIED = 'hsl(0, 0%, 100%)'
+// export const STREET_UNCLASSIFIED_OUTLINE = 'hsl(40, 4%, 86%)'
 
 export const STREET_SERVICE = 'hsl(0, 0%, 100%)'
 export const STREET_SERVICE_OUTLINE = 'hsl(40, 4%, 86%)'
 
-// Areas
+export const STREET_LIVING_STREET = 'hsl(0, 0%, 100%)'
+export const STREET_LIVING_STREET_OUTLINE = 'hsl(40, 4%, 80%)'
+
+export const STREET_BUSWAY = 'hsl(0, 100%, 88%)'
+export const STREET_BUSWAY_OUTLINE = 'hsl(0, 72%, 64%)'
+
+export const STREET_TRACK = 'hsl(30, 48%, 48%)'
+export const STREET_TRACK_OUTLINE = 'hsla(48, 68%, 91%, 0.5)'
+
+export const STREET_PEDESTRIAN = 'hsl(240, 6%, 90%)'
+export const STREET_PEDESTRIAN_OUTLINE = 'hsl(240, 11%, 72%)'
 export const STREET_PEDESTRIAN_ZONE = 'hsla(210, 32%, 35%, 0.13)'
 
+export const STREET_BICYCLE_PEDESTRIAN = 'hsl(240, 35%, 87%)'
+export const STREET_BICYCLE_LIVING_STREET = 'hsl(200, 100%, 97%)'
+export const STREET_BICYCLE_RESIDENTIAL = 'hsl(200, 47%, 95%)'
+export const STREET_BICYCLE_UNCLASSIFIED = 'hsl(200, 100%, 97%)'
+
 // Paths
+export const PATH_STEPS = 'hsl(355, 60%, 62%)'
+export const PATH_STEPS_DASH = 'hsl(356,48%,54%)'
+export const PATH_STEPS_OUTLINE = 'hsl(350, 35%, 91%)'
+
+export const PATH_FOOTWAY = 'hsl(355, 60%, 62%)'
+export const PATH_FOOTWAY_DASH = 'hsl(357, 73%, 69%)'
+export const PATH_FOOTWAY_OUTLINE = 'hsl(359, 70%, 94%)'
+
+export const PATH_SHARED = 'hsl(232, 90%, 67%)'
+export const PATH_SHARED_DASH = 'hsl(232, 90%, 67%)'
+export const PATH_SHARED_OUTLINE = 'hsl(227, 58%, 94%)'
+
+export const PATH_CYCLEWAY = 'hsl(162, 40%, 52%)'
+export const PATH_CYCLEWAY_DASH = 'hsl(162, 40%, 52%)'
+export const PATH_CYCLEWAY_OUTLINE = 'hsl(135, 64%, 95%)'
+
+// Aeroway
+export const AEROWAY_TAXIWAY = 'hsl(0, 0%, 60%)'
+export const AEROWAY_TAXIWAY_DASH = 'hsl(60, 20%, 58%)'
+export const AEROWAY_TAXIWAY_OUTLINE = 'hsl(36, 5%, 80%)'
+
+export const AEROWAY_RUNWAY = 'hsl(0, 0%, 36%)'
+export const AEROWAY_RUNWAY_DASH = 'hsl(0, 0%, 100%)'
+export const AEROWAY_RUNWAY_OUTLINE = 'hsl(36, 5%, 80%)'
+
+// Ferry
+export const TRANSPORT_FERRY = 'hsl(205, 35%, 75%)'
+
+// Bridge
+export const BRIDGE_STEPS_SLAB = 'hsl(0, 72%, 69%)'
 
 // Rail
 export const TRANSPORT_FUNICULAR = 'hsl(208, 14%, 73%)'
