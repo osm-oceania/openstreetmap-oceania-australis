@@ -1,6 +1,7 @@
 import type { LayerSpecification } from '@maplibre/maplibre-gl-style-spec'
 
 import { styleBuilder } from '../build'
+import aeroway from '../layers/aeroway'
 import amenities from '../layers/amenity'
 import amenities2 from '../layers/amenity2'
 import area from '../layers/area'
@@ -12,15 +13,80 @@ import landCover from '../layers/landcover'
 import landUse from '../layers/landuse'
 import marking from '../layers/marking'
 import path from '../layers/path'
-import pathOutline from '../layers/pathOutline'
 import poi from '../layers/poi'
 import rail from '../layers/rail'
 import road from '../layers/road'
-import roadOutline from '../layers/roadOutline'
 import symbol from '../layers/symbols'
 import transport from '../layers/transport'
 import water from '../layers/water'
-import { MaplibreLayerDefinition, StyleSpecification } from '../types/maplibre'
+import type {
+  MaplibreLayerDefinition,
+  StyleSpecification,
+} from '../types/maplibre'
+import {
+  type BucketKey,
+  type Family,
+  type LayerBuckets,
+  type Variant,
+  mergeBuckets,
+} from '../utils/layerBuckets'
+
+function _pick(b: LayerBuckets, key: BucketKey) {
+  return b[key] ?? []
+}
+
+/**
+ * Pick layers from buckets across all variants and layer types.
+ * Ensures proper render order: all casings, then all fills, then all dashes.
+ */
+function pickAllVariants(
+  b: LayerBuckets,
+  families: Family[],
+  options?: {
+    insert?: Array<
+      ['before' | 'after', Variant, () => MaplibreLayerDefinition[]]
+    >
+  },
+): MaplibreLayerDefinition[] {
+  const variants: Variant[] = ['tunnel', 'normal', 'bridge']
+  const layerTypes: ('casing' | 'fill' | 'dash')[] = ['casing', 'fill', 'dash']
+  const allLayers: MaplibreLayerDefinition[] = []
+
+  // For each layer type (casing, fill, dash)
+  for (const layerType of layerTypes) {
+    // For each variant (tunnel, normal, bridge)
+    for (let i = 0; i < variants.length; i++) {
+      const variant = variants[i]
+
+      // Insert layers at specified positions (only on first layer type to avoid duplicates)
+      if (layerType === 'casing' && options?.insert) {
+        for (const [position, targetVariant, insertFn] of options.insert) {
+          if (position === 'before' && variant === targetVariant) {
+            allLayers.push(...insertFn())
+          } else if (
+            position === 'after' &&
+            i > 0 &&
+            variants[i - 1] === targetVariant
+          ) {
+            allLayers.push(...insertFn())
+          }
+        }
+      }
+
+      // For each family (footway, aeroway, road, transport)
+      for (const family of families) {
+        const key: BucketKey = `${variant}:${family}`
+        const layers = b[key] ?? []
+        const filtered = layers.filter((layer) =>
+          layer.id.endsWith(`-${layerType}`),
+        )
+        allLayers.push(...filtered)
+      }
+    }
+  }
+
+  return allLayers
+}
 
 /**
  * Build the final MapLibre layer specifications by injecting the source property
@@ -29,6 +95,8 @@ import { MaplibreLayerDefinition, StyleSpecification } from '../types/maplibre'
  * @returns MapLibre LayerSpecification array
  */
 export function buildLayers(): LayerSpecification[] {
+  const buckets = mergeBuckets(path(), aeroway(), transport(), road())
+
   const definitions: MaplibreLayerDefinition[] = [
     ...base(),
     ...landUse(),
@@ -37,13 +105,14 @@ export function buildLayers(): LayerSpecification[] {
     ...water(),
     ...amenities2(),
     ...building(),
+
+    // Render all street layers (casings → fills → dashes across all variants)
+    ...pickAllVariants(buckets, ['footway', 'aeroway', 'road', 'transport'], {
+      insert: [['after', 'tunnel', () => area()]],
+    }),
+
     ...boundary(),
-    ...area(),
-    ...pathOutline(),
-    ...roadOutline(),
-    ...path(),
-    ...road(),
-    ...transport(),
+
     ...rail(),
     ...label(),
     ...poi(),
