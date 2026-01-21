@@ -89,7 +89,7 @@ export default function labelLayer(): MaplibreLayerDefinition[] {
       },
     },
     {
-      id: 'label-street-livingstreet',
+      id: 'label-street-livingStreet',
       type: 'symbol',
       'source-layer': 'street_labels',
       minzoom: 12,
