@@ -75,6 +75,7 @@
     "typescript/no-duplicate-enum-values": "warn",
     "typescript/no-duplicate-type-constituents": "warn",
     "typescript/no-extra-non-null-assertion": "warn",
+    "typescript/no-explicit-any": "warn",
     "typescript/no-floating-promises": "warn",
     "typescript/no-for-in-array": "warn",
     "typescript/no-implied-eval": "warn",
