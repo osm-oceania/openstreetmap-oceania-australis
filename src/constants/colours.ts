@@ -23,26 +23,26 @@ export const LAND_WETLAND = 'hsla(154, 55%, 84%, 0.4)'
 // Land uses
 export const LAND_RESIDENTIAL = 'hsl(30, 20%, 92%)'
 export const LAND_AGRICULTURE = 'hsl(72, 51%, 88%)'
-export const LAND_COMMERCIAL = 'hsla(0, 80%, 90%, 0.8)'
+export const LAND_COMMERCIAL = 'hsl(23, 100%, 92%)'
 export const LAND_INDUSTRIAL = 'hsla(295, 75%, 80%, 0.17)'
 export const LAND_WASTE = 'hsl(36, 16%, 82%)'
 export const LAND_BURIAL = 'hsl(170, 16%, 78%)'
 export const LAND_LEISURE = 'hsl(84, 29%, 90%)' // e.g. golf courses, playgrounds
-export const LAND_PARK = 'hsl(90, 67%, 81%)'
+export const LAND_PARK = 'hsl(112, 67%, 81%)'
 
 // Amenities
-export const SITE_UNIVERSITY = 'hsl(60, 100%, 75%)'
-export const SITE_UNIVERSITY_OUTLINE = 'hsl(60, 70%, 30%)'
+export const SITE_UNIVERSITY = 'hsl(55, 72%, 95%)'
+export const SITE_UNIVERSITY_OUTLINE = 'hsl(60, 78%, 71%)'
 
-export const SITE_COLLEGE = 'hsl(60, 100%, 75%)'
-export const SITE_COLLEGE_OUTLINE = 'hsl(60, 70%, 30%)'
+export const SITE_COLLEGE = 'hsl(55, 72%, 95%)'
+export const SITE_COLLEGE_OUTLINE = 'hsl(60, 78%, 71%)'
 
-export const SITE_SCHOOL = 'hsl(60, 100%, 75%)'
-export const SITE_SCHOOL_OUTLINE = 'hsl(60, 70%, 30%)'
+export const SITE_SCHOOL = 'hsl(55, 72%, 95%)'
+export const SITE_SCHOOL_OUTLINE = 'hsl(60, 78%, 71%)'
 
 export const SITE_HOSPITAL = 'hsl(0, 100%, 90%)'
 export const SITE_HOSPITAL_OUTLINE = 'hsl(0, 55%, 80%)'
-export const SITE_PARKING = 'hsl(240, 7%, 87%)'
+export const SITE_PARKING = 'hsla(240, 8%, 86%, 0.65)'
 export const SITE_PARKING_BICYCLE = 'hsl(24, 11%, 91%)'
 
 export const SITE_CONSTRUCTION = 'hsla(30, 8%, 69%, 0.9)'
@@ -124,7 +124,7 @@ export const PATH_CYCLEWAY_OUTLINE = 'hsl(135, 64%, 95%)'
 
 // Aeroway
 export const AEROWAY_TAXIWAY = 'hsl(0, 0%, 60%)'
-export const AEROWAY_TAXIWAY_DASH = 'hsl(60, 20%, 58%)'
+export const AEROWAY_TAXIWAY_DASH = 'hsl(60, 47%, 73%)'
 export const AEROWAY_TAXIWAY_OUTLINE = 'hsl(36, 5%, 80%)'
 
 export const AEROWAY_RUNWAY = 'hsl(0, 0%, 36%)'
@@ -148,7 +148,7 @@ export const TRANSPORT_MONORAIL = 'hsl(208, 14%, 73%)'
 export const TRANSPORT_MONORAIL_OUTLINE = 'hsl(208, 14%, 73%)'
 export const TRANSPORT_NARROWGAUGE = 'hsl(208, 14%, 73%)'
 export const TRANSPORT_NARROWGAUGE_OUTLINE = 'hsl(208, 14%, 73%)'
-export const TRANSPORT_RAIL = 'hsl(240, 100%, 100%)'
+export const TRANSPORT_RAIL = 'hsl(0, 100%, 100%)'
 export const TRANSPORT_RAIL_OUTLINE = 'hsl(0, 0%, 72%)'
 export const TRANSPORT_RAIL_SERVICE = 'hsl(210, 14%, 80%)'
 export const TRANSPORT_RAIL_SERVICE_OUTLINE = 'hsl(208, 14%, 73%)'
