@@ -32,6 +32,26 @@ export default function landUseLayer(): MaplibreLayerDefinition[] {
       },
     },
     {
+      id: 'land-commercial',
+      type: 'fill',
+      'source-layer': 'land',
+      filter: kindEquals('commercial', 'retail'),
+      paint: {
+        'fill-color': land.commercial,
+        'fill-opacity': stops([
+          [10, 0],
+          [11, 1],
+        ]),
+      },
+    },
+    {
+      id: 'land-leisure',
+      type: 'fill',
+      'source-layer': 'land',
+      filter: kindEquals('miniature_golf', 'playground', 'golf_course'),
+      paint: { 'fill-color': land.leisure },
+    },
+    {
       id: 'land-agriculture',
       type: 'fill',
       'source-layer': 'land',
@@ -52,26 +72,6 @@ export default function landUseLayer(): MaplibreLayerDefinition[] {
           [11, 1],
         ]),
       },
-    },
-    {
-      id: 'land-commercial',
-      type: 'fill',
-      'source-layer': 'land',
-      filter: kindEquals('commercial', 'retail'),
-      paint: {
-        'fill-color': land.commercial,
-        'fill-opacity': stops([
-          [10, 0],
-          [11, 1],
-        ]),
-      },
-    },
-    {
-      id: 'land-leisure',
-      type: 'fill',
-      'source-layer': 'land',
-      filter: kindEquals('miniature_golf', 'playground', 'golf_course'),
-      paint: { 'fill-color': land.leisure },
     },
     {
       id: 'land-burial',
